@@ -5,7 +5,7 @@ import Image from 'next/image';
 const MainPage: NextPage = () => {
   return (
     <>
-      <main className='flex flex-col gap-16 p-16 max-w-[1440px]'>
+      <main className='flex flex-col gap-16 p-16 '>
         <Section>
           <div className='flex flex-col md:flex-row items-center md:items-start gap-20'>
             <div className='flex-1 flex flex-col gap-6'>
@@ -24,10 +24,10 @@ const MainPage: NextPage = () => {
             </div>
             <div className='flex-1 flex justify-center'>
               <Image
-                src='/hero-image.png'
+                src='/hero-image.webp'
                 alt='Simon Schötz hero image'
-                width={528}
-                height={710}
+                width={2129}
+                height={1584}
                 className='object-cover w-full'
                 priority
               />
