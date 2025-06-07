@@ -75,6 +75,9 @@ const MainPage: NextPage = () => {
         </Section>
 
         <Section>
+          <H2 text='About Me' />
+        </Section>
+        <Section>
           <H2 text='Projects' />
         </Section>
       </main>
