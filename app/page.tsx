@@ -1,18 +1,40 @@
 import { Section } from '@/components';
 import { NextPage } from 'next';
+import Image from 'next/image';
 
 const MainPage: NextPage = () => {
   return (
-    <div>
-      <main>
-        <Section className='p-16'>
-          <div>
-            <h1>HEY THIS IS SIMON</h1>
-            <p>Where Code Meets Creativity, Conscience, and Purpose</p>
-            <p>Berlin, Germany</p>
+    <>
+      <main className='flex flex-col gap-16 p-16 max-w-[1440px]'>
+        <Section>
+          <div className='flex flex-col md:flex-row items-center md:items-start gap-20'>
+            <div className='flex-1 flex flex-col gap-6'>
+              <h1 className='text-[clamp(2.5rem,10vw,8rem)] leading-[1] uppercase'>
+                Simon Schötz
+              </h1>
+              <p className='font-mono text-2xl'>
+                Where Code Meets Creativity, Conscience, and Purpose
+              </p>
+              <div className='font-mono text-2xl flex gap-2'>
+                <p className='flex-1 whitespace-break-spaces'>
+                  Web Developer,{'\n'}Sound Engineer
+                </p>
+                <p className='flex-1'>Based in Berlin, Germany</p>
+              </div>
+            </div>
+            <div className='flex-1 flex justify-center'>
+              <Image
+                src='/hero-image.png'
+                alt='Simon Schötz hero image'
+                width={528}
+                height={710}
+                className='object-cover w-full'
+                priority
+              />
+            </div>
           </div>
         </Section>
-        <Section className='p-16'>
+        <Section>
           <h2>Creativity</h2>
           <p>
             I approach every project as a space for thoughtful design and
@@ -23,7 +45,7 @@ const MainPage: NextPage = () => {
             possibilities.
           </p>
         </Section>
-        <Section className='p-16'>
+        <Section>
           <h2>Conscience</h2>
           <p>
             My work ethic is rooted in respect—for people and for the planet.
@@ -34,7 +56,7 @@ const MainPage: NextPage = () => {
             those who interact with me or my work.
           </p>
         </Section>
-        <Section className='p-16'>
+        <Section>
           <h2>Purpose</h2>
           <p>
             I&apos;m driven by meaningful work that contributes to positive
@@ -51,7 +73,7 @@ const MainPage: NextPage = () => {
       <footer>
         <p>© 2025 Simon Schötz</p>
       </footer>
-    </div>
+    </>
   );
 };
 
