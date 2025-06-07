@@ -5,9 +5,9 @@ import Image from 'next/image';
 const MainPage: NextPage = () => {
   return (
     <>
-      <main className='flex flex-col gap-16 p-16 '>
+      <main className='flex flex-col gap-16 p-16 max-sm:p-2'>
         <Section>
-          <div className='flex flex-col md:flex-row items-center md:items-start gap-20'>
+          <div className='flex flex-col sm:flex-row items-center sm:items-start gap-20'>
             <div className='flex-1 flex flex-col gap-6'>
               <h1 className='text-[clamp(2.5rem,10vw,8rem)] leading-[1] uppercase'>
                 Simon Schötz
@@ -15,11 +15,9 @@ const MainPage: NextPage = () => {
               <p className='font-mono text-2xl'>
                 Where Code Meets Creativity, Conscience, and Purpose
               </p>
-              <div className='font-mono text-2xl flex gap-2'>
-                <p className='flex-1 whitespace-break-spaces'>
-                  Web Developer,{'\n'}Sound Engineer
-                </p>
-                <p className='flex-1'>Based in Berlin, Germany</p>
+              <div className='font-mono  whitespace-break-spaces text-2xl flex gap-2'>
+                <p className='flex-1'>Web Developer,{'\n'}Sound Engineer</p>
+                <p className='flex-1'>Based in Berlin,{'\n'}Germany</p>
               </div>
             </div>
             <div className='flex-1 flex justify-center'>
