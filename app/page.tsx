@@ -1,4 +1,5 @@
-import { H1, H2, H3, Section } from '@/components';
+import { H1, H2, RouterItem, Section } from '@/components';
+import { Route } from '@/enums';
 import { NextPage } from 'next';
 import Image from 'next/image';
 
@@ -36,46 +37,25 @@ const MainPage: NextPage = () => {
         </Section>
 
         <Section>
-          <H2 text='Philosophy' />
-
-          <H3 text='Creativity' />
+          <H2 text='Values' className='mb-4' />
 
           <p>
-            I approach every project as a space for thoughtful design and
-            inventive problem-solving. I&apos;m skilled at weighing diverse
-            perspectives—users, stakeholders, technical constraints—to make
-            clear, creative decisions that move projects forward. Creativity,
-            for me, is about connection—between people, systems, and
-            possibilities.
+            Creativity, Conscience, and Purpose - more than just buzzwords. They
+            shape how I code, collaborate, and lead. Whether I&apos;m building
+            scalable systems or mentoring teammates, I try to make space for
+            creativity, act with conscience, and stay grounded in purpose. If
+            you&apos;re curious how that plays out in practice
           </p>
 
-          <H3 text='Conscience' />
-
-          <p>
-            My work ethic is rooted in respect—for people and for the planet.
-            Technology isn&apos;t neutral, and I believe developers have a
-            responsibility to consider the social and ecological impact of what
-            we build. I advocate for transparency, inclusive design, and strive
-            to stay mindful of intersectionality and the diverse experiences of
-            those who interact with me or my work.
-          </p>
-
-          <H3 text='Purpose' />
-
-          <p>
-            I&apos;m driven by meaningful work that contributes to positive
-            change. As a developer and aspiring project lead, I seek out
-            collaborations that matter—projects that empower users, uplift
-            communities, or push the web forward in thoughtful, responsible
-            ways. While I stay curious and informed, I remain skeptical of
-            trends that prioritize novelty over real value (yeah, I&apos;m
-            looking at you, AI hype train 😉). Purpose keeps me focused,
-            motivated, and grounded.
-          </p>
+          <RouterItem
+            href={Route.VALUES}
+            label='Read more →'
+            className='font-mono'
+          />
         </Section>
 
         <Section>
-          <H2 text='About Me' />
+          <H2 text='Professional Career' />
         </Section>
         <Section>
           <H2 text='Projects' />
