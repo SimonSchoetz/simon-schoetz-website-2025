@@ -1,10 +1,10 @@
 import { FCProps, HeadingProps } from '@/types';
 
-type Props = {
+type Props = HeadingProps & {
   text: string;
 };
 
-export const H1: FCProps<HeadingProps & Props> = ({ text, ...props }) => {
+export const H1: FCProps<Props> = ({ text, ...props }) => {
   return (
     <h1
       {...props}
@@ -15,7 +15,7 @@ export const H1: FCProps<HeadingProps & Props> = ({ text, ...props }) => {
   );
 };
 
-export const H2: FCProps<HeadingProps & Props> = ({ text, ...props }) => {
+export const H2: FCProps<Props> = ({ text, ...props }) => {
   return (
     <h2 {...props} className={`text-6xl uppercase ${props.className}`}>
       {text}
@@ -23,7 +23,7 @@ export const H2: FCProps<HeadingProps & Props> = ({ text, ...props }) => {
   );
 };
 
-export const H3: FCProps<HeadingProps & Props> = ({ text, ...props }) => {
+export const H3: FCProps<Props> = ({ text, ...props }) => {
   return (
     <h3 {...props} className={`text-2xl py-4 uppercase ${props.className}`}>
       {text}
