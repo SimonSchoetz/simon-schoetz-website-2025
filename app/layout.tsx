@@ -32,8 +32,22 @@ export default function RootLayout({
               <li>
                 <RouterItem
                   className='font-mono'
-                  href={Route.VALUES}
-                  label='Values →'
+                  href={Route.PRINCIPLES}
+                  label='Principles →'
+                />
+              </li>
+              <li>
+                <RouterItem
+                  className='font-mono'
+                  href={Route.PROFESSIONAL_CAREER}
+                  label='Professional Career →'
+                />
+              </li>
+              <li>
+                <RouterItem
+                  className='font-mono'
+                  href={Route.PROJECTS}
+                  label='Projects →'
                 />
               </li>
             </ul>
