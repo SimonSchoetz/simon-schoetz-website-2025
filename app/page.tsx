@@ -8,20 +8,15 @@ import {
 
 const MainPage: NextPage = () => {
   return (
-    <>
-      <main className='flex flex-col gap-16 p-16 max-sm:p-2'>
-        <HeroSection />
+    <main className='flex flex-col gap-16 p-16 max-sm:p-2'>
+      <HeroSection />
 
-        <PrinciplesSection />
+      <PrinciplesSection />
 
-        <ProfessionalCareerSection />
+      <ProfessionalCareerSection />
 
-        <ProjectsSection />
-      </main>
-      <footer>
-        <p>© 2025 Simon Schötz</p>
-      </footer>
-    </>
+      <ProjectsSection />
+    </main>
   );
 };
 

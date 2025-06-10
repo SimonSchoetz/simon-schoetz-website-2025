@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { geistMono, geistSans } from '@/_fonts';
-import { RouterItem } from '@/components';
-import { Route } from '@/enums';
+
+import { Header } from './_components/Header';
+import { Footer } from './_components/Footer';
 
 export const metadata: Metadata = {
   title: 'Simon Schötz',
@@ -15,45 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='flex justify-center'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased flex flex-col items-center justify-center w-full`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased flex flex-col items-center justify-center w-full max-w-[1440px]`}
       >
-        <header className='w-full p-16 max-sm:p-2'>
-          <nav>
-            <ul className='flex gap-4'>
-              <li>
-                <RouterItem
-                  className='font-mono'
-                  href={Route.HOME}
-                  label='Simon Schötz →'
-                />
-              </li>
-              <li>
-                <RouterItem
-                  className='font-mono'
-                  href={Route.PRINCIPLES}
-                  label='Principles →'
-                />
-              </li>
-              <li>
-                <RouterItem
-                  className='font-mono'
-                  href={Route.PROFESSIONAL_CAREER}
-                  label='Professional Career →'
-                />
-              </li>
-              <li>
-                <RouterItem
-                  className='font-mono'
-                  href={Route.PROJECTS}
-                  label='Projects →'
-                />
-              </li>
-            </ul>
-          </nav>
-        </header>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
