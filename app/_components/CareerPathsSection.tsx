@@ -4,7 +4,7 @@ import { FCProps, SectionProps } from '@/types';
 
 type Props = SectionProps;
 
-export const ProfessionalCareerSection: FCProps<Props> = ({ ...props }) => {
+export const CareerPathsSection: FCProps<Props> = ({ ...props }) => {
   return (
     <Section {...props}>
       <H2 text='My Professional Career' className='mb-4' />
@@ -27,7 +27,7 @@ export const ProfessionalCareerSection: FCProps<Props> = ({ ...props }) => {
       </p>
 
       <RouterItem
-        href={Route.PROFESSIONAL_CAREER}
+        href={Route.CAREER_PATHS}
         label='Read more →'
         className='font-mono'
       />

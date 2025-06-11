@@ -16,8 +16,8 @@ const RouterItems: RouterItem[] = [
     label: 'Principles →',
   },
   {
-    href: Route.PROFESSIONAL_CAREER,
-    label: 'Professional Career →',
+    href: Route.CAREER_PATHS,
+    label: 'Career Paths →',
   },
   {
     href: Route.PROJECTS,

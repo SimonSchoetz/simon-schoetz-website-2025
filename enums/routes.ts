@@ -1,6 +1,6 @@
 export enum Route {
   HOME = '/',
   PRINCIPLES = '/principles',
-  PROFESSIONAL_CAREER = '/professional-career',
+  CAREER_PATHS = '/career-paths',
   PROJECTS = '/projects',
 }

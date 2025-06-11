@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import {
   HeroSection,
   PrinciplesSection,
-  ProfessionalCareerSection,
+  CareerPathsSection,
   ProjectsSection,
 } from './_components';
 
@@ -13,7 +13,7 @@ const MainPage: NextPage = () => {
 
       <PrinciplesSection />
 
-      <ProfessionalCareerSection />
+      <CareerPathsSection />
 
       <ProjectsSection />
     </main>
