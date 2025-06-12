@@ -72,7 +72,11 @@ const CareerPathsPage: NextPage = () => {
           After some consideration, I made the bold decision to leave my career
           in the car industry and pursue my true passion—learning how to produce
           music—after seeing a commercial for Deutsche POP in a Munich subway.
-          (The careful reader might see a pattern here 😉.)
+          (The careful reader might see a pattern here 😉.) It wasn&apos;t a
+          completely random choice since I come from a family of musicians. I
+          had played piano for ten years and trombone for three, but my heart
+          has always been in electronic music that challenges conventional
+          concepts and listening habits.
         </p>
 
         <p>
@@ -119,8 +123,61 @@ const CareerPathsPage: NextPage = () => {
         </p>
       </Section>
       <Section>
-        <H3 text='Kfz-Meister' />
-        <p>TBD</p>
+        <H3 text='Car Industry' />
+        <p>
+          A closed chapter, but an important one—with lessons that were
+          sometimes painfully earned. My career in the automotive world began
+          with an apprenticeship in a small-town workshop in 2007. It was a
+          harsh environment, led by a choleric boss who thrived on breaking down
+          his younger employees. I saw no alternative at the time, so I pushed
+          through and finished my training. I didn’t know what I wanted, but I
+          knew I wanted more—I needed to aim higher.
+        </p>
+        <p>
+          That drive led me to pursue the Kfz-Meister, a higher qualification
+          that required additional experience in the field. I pressed on, and a
+          year later, I was accepted into the program. I loved the academic
+          part, but something shifted when I realized that a large part of the
+          theoretical exam focused on outdated technology. This path wasn’t for
+          me long-term. I wanted more than standing in a workshop and repairing
+          cars—I wanted to grow, expand, and move beyond the limits I’d been
+          working within. So I left my rural hometown and moved to Munich.
+        </p>
+        <p>
+          There, I joined Bertrandt, a large engineering services company. My
+          work placed me on-site at BMW—first in cutting-edge workshop
+          environments, and later, after a hand injury, as part of their elite
+          test-driving team. I thrived in this role: traveling across Europe,
+          coordinating with international engineering teams, and earning the
+          trust of BMW engineers, who recognized my reliability and
+          thoroughness. It was my first true leadership experience outside of
+          school, and it showed me what I was capable of.
+        </p>
+        <p>
+          Despite the progress, I still didn’t feel like I truly belonged. The
+          male-dominated culture and lack of long-term recognition made me
+          question my future in the industry. I knew I had more to give—and that
+          I needed a new direction. Leaving was difficult, but without a doubt,
+          it was the best decision of my life.
+        </p>
+        <p>
+          The resilience, precision, and people skills I developed during those
+          years still shape how I work today. And with time to reflect, I came
+          to understand what had held me back from thriving in that environment:
+          it lacked the space for the values I now hold central. That
+          realization laid the foundation for discovering my core principles,
+          which are now at the heart of everything I do. Only when I work in
+          alignment with them can I truly grow.
+        </p>
+        <p>
+          You can read more about my principles{' '}
+          <RouterItem
+            className='underline'
+            href={Route.PRINCIPLES}
+            label='here'
+          />
+          .
+        </p>
       </Section>
     </main>
   );
