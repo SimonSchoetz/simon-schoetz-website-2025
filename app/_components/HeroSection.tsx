@@ -12,7 +12,7 @@ export const HeroSection: FCProps<Props> = ({ ...props }) => {
           <H1 text='Simon Schötz' />
 
           <p className='font-mono text-2xl'>
-            Where Code Meets Creativity, Conscience, and Purpose
+            Building Projects Together—with Creativity, Conscience, and Purpose.
           </p>
 
           <div className='font-mono  whitespace-break-spaces text-2xl flex gap-2'>
