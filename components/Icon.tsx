@@ -1,4 +1,4 @@
-import { FCProps, SvgProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 
 import * as Icons from './icons';
 
@@ -8,7 +8,7 @@ const iconList = {
 
 type Props = { iconName: keyof typeof iconList };
 
-export const Icon: FCProps<SvgProps & Props> = ({
+export const Icon: FCProps<HtmlProps<'svg'> & Props> = ({
   iconName,
   className = '',
   ...props
