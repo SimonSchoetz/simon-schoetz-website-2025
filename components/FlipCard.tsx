@@ -10,7 +10,7 @@ type Props = HtmlProps<'div'> & {
 };
 
 const boxStyle: HtmlProps<'div'>['className'] =
-  'w-full h-full bg-bg-2 rounded-4xl content-center';
+  'w-full h-full bg-bg-2 rounded-4xl p-8';
 
 export const FlipCard: FCProps<Props> = ({
   cover,
@@ -54,8 +54,8 @@ const Cover: FCProps<
   HtmlProps<'div'> & { text: string; onFlip: () => void }
 > = ({ text, onFlip, className = '', ...props }) => {
   return (
-    <div {...props} className={`${boxStyle} ${className}`}>
-      <p>{text}</p>
+    <div {...props} className={`${boxStyle} ${className} content-center`}>
+      <p className='text-5xl'>{text}</p>
       <Button
         config='icon'
         iconName='arrowInCircle'
@@ -71,15 +71,15 @@ const Content: FCProps<
   HtmlProps<'div'> & { text: string; onFlip: () => void }
 > = ({ text, onFlip, className = '', ...props }) => {
   return (
-    <div {...props} className={`${boxStyle} ${className}`}>
+    <div {...props} className={`${boxStyle} ${className} overflow-auto`}>
       <Button
         config='icon'
         iconName='arrowInCircle'
-        className='stroke-fg-2 rotate-180 absolute top-8 left-8'
+        className='stroke-fg-2 rotate-180'
         aria-label='Flip card to view cover'
         onClick={onFlip}
       />
-      <p>{text}</p>
+      <p className='pt-8 '>{text}</p>
     </div>
   );
 };
