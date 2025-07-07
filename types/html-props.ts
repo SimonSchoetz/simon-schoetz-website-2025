@@ -8,3 +8,5 @@ export type HeadingProps =
   | JSX.IntrinsicElements['h1']
   | JSX.IntrinsicElements['h2']
   | JSX.IntrinsicElements['h3'];
+
+export type SvgProps = JSX.IntrinsicElements['svg'];
