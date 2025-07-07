@@ -8,18 +8,11 @@ export const PrinciplesSection: FCProps<Props> = ({ ...props }) => {
     <Section {...props}>
       <H2 text='Principles' className='mb-4' />
 
-      <FlipCard
-        front={<div>Creativity Front</div>}
-        back={<div>Creativity Back</div>}
-      />
-      <FlipCard
-        front={<div>Conscience Front</div>}
-        back={<div>Conscience Back</div>}
-      />
-      <FlipCard
-        front={<div>Purpose Front</div>}
-        back={<div>Purpose Back</div>}
-      />
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <FlipCard cover='Creativity' content='Creativity Content' />
+        <FlipCard cover='Conscience' content='Conscience Content' />
+        <FlipCard cover='Purpose' content='Purpose Content' />
+      </div>
     </Section>
   );
 };
