@@ -23,15 +23,26 @@ export const FlipCard: FCProps<Props> = ({
   const handleFlip = () => setIsFlipped(!isFlipped);
 
   const sharedStyles =
-    'absolute w-full h-full backface-hidden transition-transform duration-1500';
+    'absolute w-full h-full backface-hidden transition-transform duration-1000';
 
   return (
-    <div {...props} className={`${className} relative aspect-square`}>
-      <div className='relative w-full h-full transform-style-preserve-3d'>
-        <div className={`${sharedStyles} ${isFlipped ? 'rotate-y-180' : ''}`}>
+    <div
+      {...props}
+      className={`${className} relative aspect-square perspective-distant`}
+    >
+      <div className='relative w-full h-full transform-3d'>
+        <div
+          className={`${sharedStyles} ${
+            isFlipped ? '[transform:rotate3d(1,-1,0,-180deg)]' : ''
+          }`}
+        >
           <Cover text={cover} onFlip={handleFlip} />
         </div>
-        <div className={`${sharedStyles} ${isFlipped ? '' : 'rotate-y-180'}`}>
+        <div
+          className={`${sharedStyles} ${
+            isFlipped ? '' : '[transform:rotate3d(1,-1,0,180deg)]'
+          }`}
+        >
           <Content text={content} onFlip={handleFlip} />
         </div>
       </div>
@@ -48,7 +59,7 @@ const Cover: FCProps<
       <Button
         config='icon'
         iconName='arrowInCircle'
-        className='stroke-fg-2'
+        className='stroke-fg-2 absolute bottom-8 right-8'
         aria-label='Flip card to view details'
         onClick={onFlip}
       />
@@ -64,7 +75,7 @@ const Content: FCProps<
       <Button
         config='icon'
         iconName='arrowInCircle'
-        className='stroke-fg-2 rotate-180'
+        className='stroke-fg-2 rotate-180 absolute top-8 left-8'
         aria-label='Flip card to view cover'
         onClick={onFlip}
       />
