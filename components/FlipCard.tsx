@@ -79,7 +79,7 @@ const Content: FCProps<
         aria-label='Flip card to view cover'
         onClick={onFlip}
       />
-      <p className='pt-8 '>{text}</p>
+      <p className='pt-8'>{text}</p>
     </div>
   );
 };

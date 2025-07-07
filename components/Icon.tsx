@@ -4,7 +4,7 @@ import * as Icons from './icons';
 
 const iconList = {
   arrowInCircle: Icons.ArrowInCircle,
-} as const;
+} satisfies Record<string, React.FC<HtmlProps<'svg'>>>;
 
 type Props = { iconName: keyof typeof iconList };
 
