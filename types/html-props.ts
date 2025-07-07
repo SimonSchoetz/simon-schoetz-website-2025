@@ -1,12 +1,25 @@
 import { JSX } from 'react';
 
-export type SectionProps = JSX.IntrinsicElements['section'];
+export type HtmlProps<T extends keyof JSX.IntrinsicElements> =
+  JSX.IntrinsicElements[T];
 
-export type DivProps = JSX.IntrinsicElements['div'];
-
-export type HeadingProps =
-  | JSX.IntrinsicElements['h1']
-  | JSX.IntrinsicElements['h2']
-  | JSX.IntrinsicElements['h3'];
-
-export type SvgProps = JSX.IntrinsicElements['svg'];
+/**
+ * @deprecated Use HtmlProps instead.
+ */
+export type SectionProps = HtmlProps<'section'>;
+/**
+ * @deprecated Use HtmlProps instead.
+ */
+export type DivProps = HtmlProps<'div'>;
+/**
+ * @deprecated Use HtmlProps instead.
+ */
+export type HeadingProps = HtmlProps<'h1'> | HtmlProps<'h2'> | HtmlProps<'h3'>;
+/**
+ * @deprecated Use HtmlProps instead.
+ */
+export type SvgProps = HtmlProps<'svg'>;
+/**
+ * @deprecated Use HtmlProps instead.
+ */
+export type ButtonProps = HtmlProps<'button'>;
