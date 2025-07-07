@@ -2,9 +2,9 @@ import { FCProps, SvgProps } from '@/types';
 
 import * as Icons from './icons';
 
-const iconList: Record<string, FCProps<SvgProps>> = {
+const iconList = {
   arrowInCircle: Icons.ArrowInCircle,
-};
+} as const;
 
 type Props = { iconName: keyof typeof iconList };
 

@@ -1,4 +1,5 @@
 import { DivProps, FCProps } from '@/types';
+import { Icon } from './Icon';
 
 type Props = DivProps & {
   cover: string;
@@ -8,29 +9,42 @@ type Props = DivProps & {
 const boxStyle: DivProps['className'] =
   'w-full h-full bg-bg-2 rounded-4xl content-center';
 
-export const FlipCard: FCProps<Props> = ({ cover, content, ...props }) => {
+export const FlipCard: FCProps<Props> = ({
+  cover,
+  content,
+  className = '',
+  ...props
+}) => {
   return (
-    <div {...props} className={`${props.className} relative aspect-square`}>
+    <div {...props} className={`${className} relative aspect-square`}>
       <Cover text={cover} />
       <Content text={content} />
     </div>
   );
 };
 
-const Cover: FCProps<DivProps & { text: string }> = ({ text, ...props }) => {
+const Cover: FCProps<DivProps & { text: string }> = ({
+  text,
+  className = '',
+  ...props
+}) => {
   return (
-    <div {...props} className={`${boxStyle} ${props.className}`}>
+    <div {...props} className={`${boxStyle} ${className}`}>
       <p>{text}</p>
-      <p>IconButton TBD</p>
+      <Icon iconName='arrowInCircle' className='stroke-fg-2' />
     </div>
   );
 };
 
-const Content: FCProps<DivProps & { text: string }> = ({ text, ...props }) => {
+const Content: FCProps<DivProps & { text: string }> = ({
+  text,
+  className = '',
+  ...props
+}) => {
   return (
-    <div {...props} className={`${boxStyle} ${props.className}`}>
+    <div {...props} className={`${boxStyle} ${className}`}>
+      <Icon iconName='arrowInCircle' className='stroke-fg-2 rotate-180' />
       <p>{text}</p>
-      <p>IconButton TBD</p>
     </div>
   );
 };
