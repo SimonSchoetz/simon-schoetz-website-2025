@@ -1,9 +1,12 @@
-import { FCProps, SvgProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 
-export const ArrowInCircle: FCProps<SvgProps> = ({ ...props }) => {
+export const ArrowInCircle: FCProps<HtmlProps<'svg'>> = ({
+  className,
+  ...props
+}) => {
   return (
     <svg
-      className={props.className}
+      className={className}
       width='32'
       height='32'
       viewBox='0 0 32 32'
