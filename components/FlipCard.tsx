@@ -1,4 +1,7 @@
+'use client';
+
 import { FCProps, HtmlProps } from '@/types';
+import { useState } from 'react';
 import { Button } from './Button';
 
 type Props = HtmlProps<'div'> & {
@@ -15,19 +18,30 @@ export const FlipCard: FCProps<Props> = ({
   className = '',
   ...props
 }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleFlip = () => setIsFlipped(!isFlipped);
+
+  const sharedStyles =
+    'absolute w-full h-full backface-hidden transition-transform duration-1500';
+
   return (
     <div {...props} className={`${className} relative aspect-square`}>
-      <Cover text={cover} />
-      <Content text={content} />
+      <div className='relative w-full h-full transform-style-preserve-3d'>
+        <div className={`${sharedStyles} ${isFlipped ? 'rotate-y-180' : ''}`}>
+          <Cover text={cover} onFlip={handleFlip} />
+        </div>
+        <div className={`${sharedStyles} ${isFlipped ? '' : 'rotate-y-180'}`}>
+          <Content text={content} onFlip={handleFlip} />
+        </div>
+      </div>
     </div>
   );
 };
 
-const Cover: FCProps<HtmlProps<'div'> & { text: string }> = ({
-  text,
-  className = '',
-  ...props
-}) => {
+const Cover: FCProps<
+  HtmlProps<'div'> & { text: string; onFlip: () => void }
+> = ({ text, onFlip, className = '', ...props }) => {
   return (
     <div {...props} className={`${boxStyle} ${className}`}>
       <p>{text}</p>
@@ -36,16 +50,15 @@ const Cover: FCProps<HtmlProps<'div'> & { text: string }> = ({
         iconName='arrowInCircle'
         className='stroke-fg-2'
         aria-label='Flip card to view details'
+        onClick={onFlip}
       />
     </div>
   );
 };
 
-const Content: FCProps<HtmlProps<'div'> & { text: string }> = ({
-  text,
-  className = '',
-  ...props
-}) => {
+const Content: FCProps<
+  HtmlProps<'div'> & { text: string; onFlip: () => void }
+> = ({ text, onFlip, className = '', ...props }) => {
   return (
     <div {...props} className={`${boxStyle} ${className}`}>
       <Button
@@ -53,6 +66,7 @@ const Content: FCProps<HtmlProps<'div'> & { text: string }> = ({
         iconName='arrowInCircle'
         className='stroke-fg-2 rotate-180'
         aria-label='Flip card to view cover'
+        onClick={onFlip}
       />
       <p>{text}</p>
     </div>
