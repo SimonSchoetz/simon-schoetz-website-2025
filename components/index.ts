@@ -3,3 +3,4 @@ export * from './Headings';
 export * from './RouterItem';
 export * from './FlipCard';
 export * from './Button';
+export * from './ExpandableCard';

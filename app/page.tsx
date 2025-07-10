@@ -13,9 +13,9 @@ const MainPage: NextPage = () => {
 
       <PrinciplesSection />
 
-      <CareerPathsSection />
-
       <ProjectsSection />
+
+      <CareerPathsSection />
     </main>
   );
 };
