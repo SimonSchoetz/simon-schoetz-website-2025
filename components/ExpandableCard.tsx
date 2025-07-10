@@ -52,6 +52,8 @@ export const ExpandableCard: FCProps<Props> = ({
         style={{
           height: isExpanded ? `${contentHeight}px` : '0px',
         }}
+        aria-hidden={!isExpanded}
+        aria-label='Expandable content'
       >
         {expandableContent}
       </div>
