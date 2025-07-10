@@ -34,7 +34,13 @@ export const ExpandableCard: FCProps<Props> = ({
 
       {fixedContent}
 
-      {isExpanded && <div>{expandableContent}</div>}
+      <div
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        {expandableContent}
+      </div>
 
       <Button
         config='defaultButton'
