@@ -67,7 +67,14 @@ export const ProjectsSection: FCProps<Props> = ({ ...props }) => {
             </ExpandableCardItem>
           </>
         }
-        techStack={['React', 'Next.js', 'Tailwind CSS', 'TypeScript']}
+        techStack={[
+          'Next.js',
+          'Tailwind CSS',
+          'TypeScript',
+          'Cloudflare',
+          'Convex',
+          'Stripe',
+        ]}
       />
     </Section>
   );

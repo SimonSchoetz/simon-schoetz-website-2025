@@ -4,6 +4,7 @@ import { FCProps } from '@/types';
 import { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import { H3 } from './Headings';
+import { Chip } from './Chip';
 
 type Props = {
   title: string;
@@ -55,9 +56,9 @@ export const ExpandableCard: FCProps<Props> = ({
         {expandableContent}
       </div>
 
-      <div className='flex flex-wrap gap-2 mb-10'>
+      <div className='flex flex-wrap gap-4 mb-10'>
         {techStack.map((tech) => (
-          <div key={tech}>{tech}</div>
+          <Chip key={tech} label={tech} />
         ))}
       </div>
 
