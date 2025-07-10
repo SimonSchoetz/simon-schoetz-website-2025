@@ -66,6 +66,8 @@ export const ExpandableCard: FCProps<Props> = ({
         config='defaultButton'
         label={isExpanded ? 'Show less' : 'Show more'}
         onClick={handleToggle}
+        icon='upInCircle'
+        iconAnimated={isExpanded}
       />
     </div>
   );
