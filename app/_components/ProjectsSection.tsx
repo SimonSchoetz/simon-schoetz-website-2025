@@ -1,4 +1,4 @@
-import { ExpandableCard, H2, H4, Section } from '@/components';
+import { ExpandableCard, ExpandableCardItem, H2, Section } from '@/components';
 import { FCProps } from '@/types';
 
 type Props = object;
@@ -12,27 +12,59 @@ export const ProjectsSection: FCProps<Props> = ({ ...props }) => {
         subheading='Co-founder · CTO · 2024'
         fixedContent={
           <>
-            <div>
-              <H4 text='Project:' />
-              <p>Project description</p>
-            </div>
-            <div>
-              <H4 text='Role:' />
-              <p>Role description</p>
-            </div>
+            <ExpandableCardItem
+              title='Project: '
+              content='Developed a streaming platform for menopause-related educational content, in collaboration with medical experts.'
+            ></ExpandableCardItem>
+            <ExpandableCardItem title='Role: ' content='Tech Lead'>
+              <ul className='list-disc pl-6'>
+                <li>Built the project from the ground up.</li>
+                <li>
+                  Designed and delivered the Minimum Viable Product (MVP).
+                </li>
+                <li>Mentored a junior developer throughout the process.</li>
+              </ul>
+            </ExpandableCardItem>
           </>
         }
         expandableContent={
           <>
-            <div>
-              <H4 text='Key Achievements:' />
-              <p>Key achievements description</p>
-            </div>
+            <ExpandableCardItem
+              title='Key Achievements: '
+              content='Key achievements description'
+            >
+              <ul className='list-disc pl-6'>
+                <li>
+                  Successfully launched a Minimum Viable Product (MVP) with core
+                  functionality.
+                </li>
+                <li>
+                  Implemented video hosting, streaming, and laid the groundwork
+                  for authentication and payment processing.
+                </li>
+                <li>
+                  Ensured the architecture was designed for GDPR-compliant
+                  handling of sensitive user data.
+                </li>
+              </ul>
+            </ExpandableCardItem>
 
-            <div>
-              <H4 text='Learnings & Growth:' />
-              <p>Learnings and growth description</p>
-            </div>
+            <ExpandableCardItem
+              title='Learnings & Growth: '
+              content='Learnings and growth description'
+            >
+              <ul className='list-disc  pl-6'>
+                <li>
+                  Gained invaluable experience in business modeling and startup
+                  funding through intensive workshops in the BSS program.
+                </li>
+                <li>
+                  It was a pivotal first experience setting up a tech project
+                  from scratch with full confidence and avoiding pitfalls from
+                  past projects.
+                </li>
+              </ul>
+            </ExpandableCardItem>
           </>
         }
         techStack={['React', 'Next.js', 'Tailwind CSS', 'TypeScript']}
