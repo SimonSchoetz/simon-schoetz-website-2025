@@ -1,7 +1,7 @@
 'use client';
 
 import { FCProps } from '@/types';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from './Button';
 import { H3 } from './Headings';
 
@@ -22,24 +22,43 @@ export const ExpandableCard: FCProps<Props> = ({
   ...props
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const handleToggle = () => setIsExpanded(!isExpanded);
 
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, [expandableContent]);
+
   return (
-    <div {...props}>
-      <div>
+    <div {...props} className='bg-bg-2 rounded-4xl p-14'>
+      <div className='flex justify-between mb-10'>
         <H3 text={title} />
-        <p>{subheading}</p>
+
+        <p className='uppercase'>{subheading}</p>
       </div>
 
-      {fixedContent}
+      <div className='flex flex-col gap-10 mb-10'>{fixedContent}</div>
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        ref={contentRef}
+        className={`flex flex-col gap-10 overflow-hidden transition-all duration-500 ${
+          isExpanded ? `opacity-100 mb-10` : 'opacity-0 mb-0'
         }`}
+        style={{
+          height: isExpanded ? `${contentHeight}px` : '0px',
+        }}
       >
         {expandableContent}
+      </div>
+
+      <div className='flex flex-wrap gap-2 mb-10'>
+        {techStack.map((tech) => (
+          <div key={tech}>{tech}</div>
+        ))}
       </div>
 
       <Button
@@ -47,12 +66,6 @@ export const ExpandableCard: FCProps<Props> = ({
         label={isExpanded ? 'Show less' : 'Show more'}
         onClick={handleToggle}
       />
-
-      <div className='flex flex-wrap gap-2'>
-        {techStack.map((tech) => (
-          <div key={tech}>{tech}</div>
-        ))}
-      </div>
     </div>
   );
 };
