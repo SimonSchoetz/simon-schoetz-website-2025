@@ -30,3 +30,11 @@ export const H3: FCProps<HtmlProps<'h3'> & Props> = ({ text, ...props }) => {
     </h3>
   );
 };
+
+export const H4: FCProps<HtmlProps<'h4'> & Props> = ({ text, ...props }) => {
+  return (
+    <h4 {...props} className={`font-bold ${props.className}`}>
+      {text}
+    </h4>
+  );
+};
