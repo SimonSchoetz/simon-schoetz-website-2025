@@ -7,22 +7,22 @@ type Props = SectionProps;
 export const HeroSection: FCProps<Props> = ({ ...props }) => {
   return (
     <Section {...props}>
-      <div className='flex flex-col sm:flex-row items-center sm:items-start gap-20'>
-        <div className='flex-1 flex flex-col gap-6'>
+      <div className='flex flex-col sm:flex-row content-center sm:items-start gap-9'>
+        <div className='flex-4 flex flex-col gap-6'>
           <H1 text='Simon Schötz' />
 
-          <p className='font-mono text-2xl'>
-            Building Projects Together—with Creativity, Conscience, and Purpose.
+          <p className='font-mono text-lg '>
+            Building projects together with Creativity, Conscience, and Purpose.
           </p>
 
-          <div className='font-mono  whitespace-break-spaces text-2xl flex gap-2'>
+          <div className='font-mono whitespace-break-spaces text-lg flex gap-2'>
             <p className='flex-1'>Web Developer,{'\n'}Sound Engineer</p>
 
             <p className='flex-1'>Based in Berlin,{'\n'}Germany</p>
           </div>
         </div>
 
-        <div className='flex-1 flex justify-center'>
+        <div className='flex-5'>
           <Image
             src='/hero-image.webp'
             alt='Simon Schötz hero image'
