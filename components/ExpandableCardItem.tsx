@@ -4,12 +4,12 @@ import { H4 } from './Headings';
 
 type Props = {
   title: string;
-  content?: string;
+  subTitle?: string;
 };
 
 export const ExpandableCardItem: FCProps<PropsWithChildren<Props>> = ({
   title,
-  content,
+  subTitle,
   children,
   ...props
 }) => {
@@ -17,7 +17,7 @@ export const ExpandableCardItem: FCProps<PropsWithChildren<Props>> = ({
     <div {...props}>
       <div>
         <H4 text={title} className='inline' />
-        {content && <span>{content}</span>}
+        {subTitle && <span>{subTitle}</span>}
       </div>
       {children}
     </div>
