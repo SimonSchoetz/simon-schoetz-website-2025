@@ -52,7 +52,7 @@ const DefaultButton: FCProps<ButtonProps> = ({
   return (
     <button
       aria-label={props['aria-label'] ?? label}
-      className={`flex gap-2 py-4 px-8 bg-fg text-bg rounded-2xl ${className}`}
+      className={`content-center gap-2 py-4 px-8 bg-fg text-bg rounded-2xl ${className}`}
       {...props}
     >
       {label}
@@ -61,7 +61,7 @@ const DefaultButton: FCProps<ButtonProps> = ({
           iconName={icon}
           className={`${
             iconAnimated ? '' : 'rotate-180'
-          } stroke-bg duration-300`}
+          } stroke-bg duration-600 `}
         />
       )}
     </button>
