@@ -55,7 +55,7 @@ const Cover: FCProps<
 > = ({ text, onFlip, className = '', ...props }) => {
   return (
     <div {...props} className={`${boxStyle} ${className} content-center`}>
-      <p className='text-5xl'>{text}</p>
+      <p className='text-5xl font-thunder font-light'>{text}</p>
       <Button
         config='icon'
         iconName='arrowInCircle'

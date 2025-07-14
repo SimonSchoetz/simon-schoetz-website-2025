@@ -52,7 +52,7 @@ const DefaultButton: FCProps<ButtonProps> = ({
   return (
     <button
       aria-label={props['aria-label'] ?? label}
-      className={`content-center gap-2 py-4 px-8 bg-fg text-bg rounded-2xl ${className}`}
+      className={`content-center uppercase gap-2 py-4 px-8 bg-fg text-bg rounded-2xl ${className}`}
       {...props}
     >
       {label}

@@ -36,10 +36,10 @@ export const ExpandableCard: FCProps<Props> = ({
 
   return (
     <div {...props} className='bg-bg-2 rounded-4xl p-14'>
-      <div className='flex justify-between mb-10'>
+      <div className='flex justify-between items-center mb-10'>
         <H3 text={title} />
 
-        <p className='uppercase'>{subheading}</p>
+        <p className='uppercase text-lg'>{subheading}</p>
       </div>
 
       <div className='flex flex-col gap-10 mb-10'>{fixedContent}</div>
