@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { geistMono, geistSans } from '@/_fonts';
+import { geistMono, geistSans, thunderFont } from '@/_fonts';
 
 import { Header } from './_components/Header';
 import { Footer } from './_components/Footer';
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='flex justify-center'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased content-center flex-col  w-full max-w-[1440px]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${thunderFont.variable} antialiased content-center flex-col  w-full max-w-[1440px]`}
       >
         <Header />
         {children}
