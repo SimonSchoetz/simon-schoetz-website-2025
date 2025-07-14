@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
-import { FCProps, SectionProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 
-export const Section: FCProps<PropsWithChildren<SectionProps>> = ({
+export const Section: FCProps<PropsWithChildren<HtmlProps<'section'>>> = ({
   children,
   ...props
 }) => {

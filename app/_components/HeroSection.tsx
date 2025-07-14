@@ -1,10 +1,8 @@
 import { Section, H1 } from '@/components';
-import { FCProps, SectionProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 import Image from 'next/image';
 
-type Props = SectionProps;
-
-export const HeroSection: FCProps<Props> = ({ ...props }) => {
+export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
   return (
     <Section {...props}>
       <div className='flex flex-col sm:flex-row content-center sm:items-start gap-9'>
