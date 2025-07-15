@@ -6,3 +6,5 @@ export * from './Button';
 export * from './ExpandableCard';
 export * from './ExpandableCardItem';
 export * from './Chip';
+export * from './ExpandableChip';
+export * from './ExpandableDiv';
