@@ -35,7 +35,9 @@ export const ExpandableDiv: FCProps<PropsWithChildren<Props>> = ({
       !isExpanded && boxHeight !== '0px' && boxHeight !== 'auto';
 
     if (shouldCollapse) {
-      setBoxHeight('0px');
+      setTimeout(() => {
+        setBoxHeight('0px');
+      }, 50);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
