@@ -25,8 +25,15 @@ type HeaderButtonProps = HtmlProps<'button'> & {
   icon?: ComponentProps<typeof Icon>['iconName'];
   flipIcon?: boolean;
 };
+type ContainerButtonProps = HtmlProps<'button'> & {
+  config: 'container';
+};
 
-type Props = DefaultButtonProps | IconButtonProps | HeaderButtonProps;
+type Props =
+  | DefaultButtonProps
+  | IconButtonProps
+  | HeaderButtonProps
+  | ContainerButtonProps;
 
 export const Button: FCProps<Props> = ({
   config = 'default',
@@ -55,7 +62,25 @@ export const Button: FCProps<Props> = ({
           className={`${sharedStyles} ${className}`}
         />
       )}
+      {config === 'container' && (
+        <ContainerButton
+          {...(props as ContainerButtonProps)}
+          className={`${sharedStyles} ${className}`}
+        />
+      )}
     </>
+  );
+};
+
+const ContainerButton: FCProps<ContainerButtonProps> = ({
+  className,
+  children,
+  ...props
+}) => {
+  return (
+    <button className={`${className}`} {...props}>
+      {children}
+    </button>
   );
 };
 
