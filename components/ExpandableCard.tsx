@@ -23,16 +23,33 @@ export const ExpandableCard: FCProps<Props> = ({
   ...props
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
+  const [boxHeight, setBoxHeight] = useState('0px');
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const handleToggle = () => setIsExpanded(!isExpanded);
+  useEffect(() => {
+    const height = contentRef.current?.scrollHeight;
+    setBoxHeight(`${height}px`);
+  }, [isExpanded]);
 
   useEffect(() => {
-    if (contentRef.current) {
-      setContentHeight(contentRef.current.scrollHeight);
+    const hasExpanded =
+      isExpanded && boxHeight !== '0px' && boxHeight !== 'auto';
+
+    if (hasExpanded) {
+      setTimeout(() => {
+        setBoxHeight('auto');
+      }, 400); // animation time + 100ms
     }
-  }, [expandableContent]);
+
+    const shouldCollapse =
+      !isExpanded && boxHeight !== '0px' && boxHeight !== 'auto';
+
+    if (shouldCollapse) {
+      setBoxHeight('0px');
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boxHeight]);
 
   return (
     <div {...props} className='bg-bg-2 rounded-4xl p-14'>
@@ -50,7 +67,7 @@ export const ExpandableCard: FCProps<Props> = ({
           isExpanded ? `opacity-100 mb-10` : 'opacity-0 mb-0'
         }`}
         style={{
-          height: isExpanded ? `${contentHeight}px` : '0px',
+          height: boxHeight,
         }}
         aria-hidden={!isExpanded}
         aria-label='Expandable content'
@@ -65,11 +82,11 @@ export const ExpandableCard: FCProps<Props> = ({
       </div>
 
       <Button
-        config='defaultButton'
+        config='default'
         label={isExpanded ? 'Show less' : 'Show more'}
-        onClick={handleToggle}
+        onClick={() => setIsExpanded(!isExpanded)}
         icon='upInCircle'
-        iconAnimated={isExpanded}
+        flipIcon={isExpanded}
       />
     </div>
   );
