@@ -5,7 +5,6 @@ import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 
 type Props = HtmlProps<'div'> & {
   isExpanded: boolean;
-  triggerToggle: () => void;
 };
 
 export const ExpandableDiv: FCProps<PropsWithChildren<Props>> = ({
@@ -41,6 +40,7 @@ export const ExpandableDiv: FCProps<PropsWithChildren<Props>> = ({
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [boxHeight]);
+
   return (
     <div
       ref={contentRef}

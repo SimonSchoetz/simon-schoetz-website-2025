@@ -38,7 +38,6 @@ export const ExpandableCard: FCProps<Props> = ({
       <ExpandableDiv
         isExpanded={isExpanded}
         className='flex flex-col gap-10 mb-10'
-        triggerToggle={() => setIsExpanded(!isExpanded)}
       >
         {expandableContent}
       </ExpandableDiv>
