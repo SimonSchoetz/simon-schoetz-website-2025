@@ -124,9 +124,7 @@ const HeaderButton: FCProps<HeaderButtonProps> = ({
       {icon && (
         <Icon
           iconName={icon}
-          className={`w-8 h-8 ${
-            flipIcon ? '' : 'rotate-x-180'
-          } stroke-bg duration-600`}
+          className={`w-8 h-8 ${flipIcon ? '' : 'rotate-x-180'} duration-600`}
         />
       )}
     </button>
