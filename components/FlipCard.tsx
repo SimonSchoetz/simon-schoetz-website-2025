@@ -3,14 +3,14 @@
 import { FCProps, HtmlProps } from '@/types';
 import { useState } from 'react';
 import { Button } from './Button';
+import { Icon } from './Icon';
 
 type Props = HtmlProps<'div'> & {
   cover: string;
   content: string;
 };
 
-const boxStyle: HtmlProps<'div'>['className'] =
-  'w-full h-full bg-bg-2 rounded-4xl p-8';
+const boxStyle: string = 'w-full h-full bg-bg-2 rounded-4xl p-8';
 
 export const FlipCard: FCProps<Props> = ({
   cover,
@@ -23,7 +23,10 @@ export const FlipCard: FCProps<Props> = ({
   const handleFlip = () => setIsFlipped(!isFlipped);
 
   const sharedStyles =
-    'absolute w-full h-full backface-hidden transition-transform duration-1000';
+    'absolute w-full h-full backface-hidden transition-transform duration-1000 group';
+
+  const sharedIconStyles =
+    'stroke-fg-2 group-hover:stroke-fg transition-all group-hover:scale-200 duration-2500';
 
   return (
     <div
@@ -31,55 +34,36 @@ export const FlipCard: FCProps<Props> = ({
       className={`${className} relative aspect-square perspective-distant`}
     >
       <div className='relative w-full h-full transform-3d'>
-        <div
-          className={`${sharedStyles} ${
+        <Button
+          config='container'
+          className={`${sharedStyles} ${boxStyle} ${
             isFlipped ? '[transform:rotate3d(1,-1,0,-180deg)]' : ''
           }`}
+          aria-label='Flip card to view content'
+          onClick={handleFlip}
         >
-          <Cover text={cover} onFlip={handleFlip} />
-        </div>
-        <div
-          className={`${sharedStyles} ${
+          <p className='text-5xl font-thunder font-light'>{cover}</p>
+          <Icon
+            iconName='arrowInCircle'
+            className={`${sharedIconStyles} absolute bottom-8 right-8 `}
+          />
+        </Button>
+
+        <Button
+          config='container'
+          className={`${sharedStyles} ${boxStyle} ${
             isFlipped ? '' : '[transform:rotate3d(1,-1,0,180deg)]'
-          }`}
+          } overflow-auto`}
+          aria-label='Flip card to view cover'
+          onClick={handleFlip}
         >
-          <Content text={content} onFlip={handleFlip} />
-        </div>
+          <Icon
+            iconName='arrowInCircle'
+            className={`${sharedIconStyles} rotate-180`}
+          />
+          <p className='pt-8 text-sm'>{content}</p>
+        </Button>
       </div>
-    </div>
-  );
-};
-
-const Cover: FCProps<
-  HtmlProps<'div'> & { text: string; onFlip: () => void }
-> = ({ text, onFlip, className = '', ...props }) => {
-  return (
-    <div {...props} className={`${boxStyle} ${className} content-center`}>
-      <p className='text-5xl font-thunder font-light'>{text}</p>
-      <Button
-        config='icon'
-        iconName='arrowInCircle'
-        className='stroke-fg-2 absolute bottom-8 right-8'
-        aria-label='Flip card to view details'
-        onClick={onFlip}
-      />
-    </div>
-  );
-};
-
-const Content: FCProps<
-  HtmlProps<'div'> & { text: string; onFlip: () => void }
-> = ({ text, onFlip, className = '', ...props }) => {
-  return (
-    <div {...props} className={`${boxStyle} ${className} overflow-auto`}>
-      <Button
-        config='icon'
-        iconName='arrowInCircle'
-        className='stroke-fg-2 rotate-180'
-        aria-label='Flip card to view cover'
-        onClick={onFlip}
-      />
-      <p className='pt-8'>{text}</p>
     </div>
   );
 };
