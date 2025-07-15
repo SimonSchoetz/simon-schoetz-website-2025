@@ -9,7 +9,7 @@ export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
       <H2 text='Principles' className='mb-4' />
 
       <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-        {principlesMap.map(({ cover, content }) => (
+        {principles.map(({ cover, content }) => (
           <li key={cover}>
             <FlipCard cover={cover} content={content} />
           </li>
@@ -19,7 +19,10 @@ export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
   );
 };
 
-const principlesMap = [
+const principles: {
+  cover: string;
+  content: string;
+}[] = [
   {
     cover: 'Creativity',
     content: `I approach every project as a space for thoughtful design and inventive problem-solving. I'm skilled at weighing diverse perspectives—users, stakeholders, technical constraints—to make clear, creative decisions that move projects forward. Creativity, for me, is about freedom and truth, to create a safe space where all opinions are heard and valued, to maximize possibilities and find the best compromise and outcome possible.`,
