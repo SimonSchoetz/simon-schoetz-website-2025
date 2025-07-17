@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
   return (
-    <Section {...props} id='top'>
-      <div className='flex flex-col sm:flex-row content-center sm:items-start gap-9'>
+    <Section {...props} id='top' className='px-16'>
+      <div className='flex flex-col sm:flex-row content-center sm:items-start gap-9 '>
         <div className='flex-4 flex flex-col gap-6'>
           <H1 text='Simon Schötz' />
 
@@ -23,7 +23,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
         <div className='flex-5'>
           <Image
             src='/hero-image.webp'
-            alt='Simon Schötz hero image'
+            alt='A portrait photo of Simon Schötz in a wine-red shirt and round glasses. He is standing in front of big doors with glass windows, one of which is partially open.'
             width={2129}
             height={1584}
             className='object-cover w-full'
