@@ -1,42 +1,48 @@
-import { RouterItem } from '@/components';
-import { Route } from '@/enums';
+import Link from 'next/link';
 
-type RouterItem = {
-  href: Route;
+type NavItem = {
+  id: string;
   label: string;
 };
 
-const RouterItems: RouterItem[] = [
+const NavItems: NavItem[] = [
   {
-    href: Route.HOME,
+    id: 'top',
     label: 'Home →',
   },
   {
-    href: Route.PRINCIPLES,
+    id: 'principles',
     label: 'Principles →',
   },
   {
-    href: Route.CAREER_PATHS,
-    label: 'Career Paths →',
+    id: 'projects',
+    label: 'Projects →',
   },
   {
-    href: Route.PROJECTS,
-    label: 'Projects →',
+    id: 'career-paths',
+    label: 'Career Paths →',
   },
 ];
 
 export const Header = () => {
   const renderItems = () => {
-    return RouterItems.map((item) => (
-      <li key={item.href}>
-        <RouterItem href={item.href} label={item.label} />
+    return NavItems.map((item) => (
+      <li key={item.id}>
+        <Link
+          href={`#${item.id}`}
+          className='font-mono hover:underline cursor-pointer'
+        >
+          {item.label}
+        </Link>
       </li>
     ));
   };
   return (
-    <header className='w-full p-16 max-sm:p-2'>
-      <nav>
-        <ul className='flex gap-12 font-mono'>{renderItems()}</ul>
+    <header className='w-full max-sm:p-2 sticky top-0 z-10 mb-10'>
+      <nav className='px-16 backdrop-blur-md'>
+        <ul className='flex gap-12 font-mono py-6 border-b border-fg-4'>
+          {renderItems()}
+        </ul>
       </nav>
     </header>
   );

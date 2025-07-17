@@ -45,6 +45,15 @@
   --text-8xl: 8rem; /* 128px */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add scroll margin to sections to account for sticky header */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);

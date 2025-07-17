@@ -5,7 +5,7 @@ export const CareerPathsSection: FCProps<HtmlProps<'section'>> = ({
   ...props
 }) => {
   return (
-    <Section {...props} className='flex flex-col gap-10'>
+    <Section {...props} id='career-paths' className='flex flex-col gap-10'>
       <H2 text='Career Paths' />
       {careerPaths.map((careerPath) => (
         <article key={careerPath.title}>

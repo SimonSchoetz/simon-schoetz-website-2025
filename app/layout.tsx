@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='flex justify-center'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${thunderFont.variable} antialiased content-center flex-col  w-full max-w-[1440px]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${thunderFont.variable} pt-10 antialiased content-center flex-col  w-full max-w-[1440px]`}
       >
         <Header />
         {children}

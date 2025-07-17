@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
   return (
-    <Section {...props}>
+    <Section {...props} id='hero'>
       <div className='flex flex-col sm:flex-row content-center sm:items-start gap-9'>
         <div className='flex-4 flex flex-col gap-6'>
           <H1 text='Simon Schötz' />
