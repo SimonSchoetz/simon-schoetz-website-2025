@@ -4,6 +4,7 @@ import {
   PrinciplesSection,
   CareerPathsSection,
   ProjectsSection,
+  ContactSection,
 } from './_components';
 
 const MainPage: NextPage = () => {
@@ -16,6 +17,8 @@ const MainPage: NextPage = () => {
       <ProjectsSection />
 
       <CareerPathsSection />
+
+      <ContactSection />
     </main>
   );
 };

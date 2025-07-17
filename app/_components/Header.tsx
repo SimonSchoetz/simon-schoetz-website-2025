@@ -25,6 +25,10 @@ const NavItems: NavItem[] = [
     id: 'career-paths',
     label: 'Career Paths →',
   },
+  {
+    id: 'contact',
+    label: 'Contact →',
+  },
 ];
 
 export const Header = () => {
@@ -78,8 +82,9 @@ export const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
     handleScroll(); // Check initial state
-    console.log('end of scrolling');
+
     return () => window.removeEventListener('scroll', handleScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sectionIds]);
