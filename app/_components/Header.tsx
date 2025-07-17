@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 type NavItem = {
   id: string;
@@ -25,18 +28,78 @@ const NavItems: NavItem[] = [
 ];
 
 export const Header = () => {
+  const [activeSection, setActiveSection] = useState<string>('top');
+  const [navTargetId, setNavTargetId] = useState<string>('');
+
+  const sectionIds = NavItems.map((item) => item.id);
+
+  const getCurrentSectionId = (): string => {
+    const scrollY = window.scrollY;
+    const isAtBottom =
+      window.innerHeight + scrollY >=
+      document.documentElement.scrollHeight - 10;
+    const fromBottomUpIds = sectionIds.toReversed();
+
+    if (isAtBottom) {
+      return fromBottomUpIds[0];
+    }
+
+    const navHeight = document.querySelector('header')?.offsetHeight;
+    const navOffset = navHeight ? navHeight + 40 : 100;
+
+    const activeSection = fromBottomUpIds.find((id) => {
+      const element = document.getElementById(id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + scrollY;
+        return scrollY + navOffset >= elementTop;
+      }
+    });
+
+    return activeSection || 'top';
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentSectionId = getCurrentSectionId();
+
+      if (navTargetId) {
+        const isNavigating = navTargetId !== currentSectionId;
+
+        if (isNavigating) {
+          setActiveSection(navTargetId);
+        } else {
+          setNavTargetId('');
+        }
+        return;
+      }
+
+      setActiveSection(currentSectionId);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+    console.log('end of scrolling');
+    return () => window.removeEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds]);
+
   const renderItems = () => {
-    return NavItems.map((item) => (
-      <li key={item.id}>
+    return NavItems.map(({ id, label }) => (
+      <li key={id}>
         <Link
-          href={`#${item.id}`}
-          className='font-mono hover:underline cursor-pointer'
+          href={`#${id}`}
+          className={`font-mono hover:underline cursor-pointer transition-all ${
+            activeSection === id ? 'font-bold' : 'text-fg-2'
+          }`}
+          onNavigate={() => setNavTargetId(id)}
         >
-          {item.label}
+          {label}
         </Link>
       </li>
     ));
   };
+
   return (
     <header className='w-full max-sm:p-2 sticky top-0 z-10 mb-10'>
       <nav className='px-16 backdrop-blur-md'>
