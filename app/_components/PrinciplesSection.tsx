@@ -2,10 +2,11 @@ import { Section, H2, FlipCard } from '@/components';
 import { FCProps, HtmlProps } from '@/types';
 
 export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
+  className = '',
   ...props
 }) => {
   return (
-    <Section {...props} id='principles' className=' px-16'>
+    <Section {...props} id='principles' className={`px-16 ${className}`}>
       <H2 text='Principles' className='mb-4' />
 
       <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>

@@ -29,15 +29,15 @@ export const ContactSection = () => {
   return (
     <Section
       id='contact'
-      className='py-32 border-t border-fg-4 px-16 flex content-center'
+      className='py-32 border-t border-fg-4 px-16 flex items-center'
     >
       <div className='flex-1'>
         <Image
           src='/contact-avatar.webp'
           alt={`Round profile image of Simon Schötz looking directly at the camera with an encouraging smile.`}
-          width={400}
-          height={400}
-          className='object-cover w-[100px] float-left mr-4'
+          width={100}
+          height={100}
+          className='object-cover float-left mr-4'
           priority
         />
         <H2
@@ -48,7 +48,12 @@ export const ContactSection = () => {
 
       <div className='flex flex-wrap gap-4 max-w-[400px] h-min justify-end'>
         {contactChips.map((chip) => (
-          <Link href={chip.link} target='_blank' key={chip.label}>
+          <Link
+            href={chip.link}
+            target='_blank'
+            rel='noopener noreferrer'
+            key={chip.label}
+          >
             <Chip
               label={chip.label}
               className='w-fit py-4 px-8 bg-transparent transition-colors hover:bg-bg-2'
