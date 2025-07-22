@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Button } from './Button';
 import { Icon } from './Icon';
 
-type Props = HtmlProps<'div'> & {
+type Props = HtmlProps<'button'> & {
   cover: string;
   content: string;
 };
@@ -23,47 +23,40 @@ export const FlipCard: FCProps<Props> = ({
   const handleFlip = () => setIsFlipped(!isFlipped);
 
   const sharedStyles =
-    'absolute w-full h-full backface-hidden transition-transform duration-1000 group';
+    'backface-hidden transition-transform duration-1000 group';
 
-  const sharedIconStyles =
-    'stroke-fg-2 group-hover:stroke-fg transition-all group-hover:scale-200 duration-2500';
+  const sharedIconStyles = 'stroke-fg-2 group-hover:stroke-fg transition-all';
 
   return (
-    <div
+    <Button
+      className={`${className} w-full h-full h-min-fit transform-3d`}
+      config='container'
+      aria-label='Flip card'
+      onClick={handleFlip}
       {...props}
-      className={`${className} relative aspect-square perspective-distant`}
     >
-      <div className='relative w-full h-full transform-3d'>
-        <Button
-          config='container'
-          className={`${sharedStyles} ${boxStyle} ${
-            isFlipped ? '[transform:rotate3d(1,-1,0,-180deg)]' : ''
-          }`}
-          aria-label='Flip card to view content'
-          onClick={handleFlip}
-        >
-          <p className='text-5xl font-thunder font-light'>{cover}</p>
-          <Icon
-            iconName='arrowInCircle'
-            className={`${sharedIconStyles} absolute bottom-8 right-8 `}
-          />
-        </Button>
-
-        <Button
-          config='container'
-          className={`${sharedStyles} ${boxStyle} ${
-            isFlipped ? '' : '[transform:rotate3d(1,-1,0,180deg)]'
-          } overflow-auto`}
-          aria-label='Flip card to view cover'
-          onClick={handleFlip}
-        >
-          <Icon
-            iconName='arrowInCircle'
-            className={`${sharedIconStyles} rotate-180`}
-          />
-          <p className='pt-8 text-sm'>{content}</p>
-        </Button>
+      <div
+        className={`${sharedStyles} ${boxStyle} ${
+          isFlipped ? '[transform:rotate3d(1,-1,0,-180deg)]' : ''
+        } absolute content-center`}
+      >
+        <p className='text-5xl font-thunder font-light'>{cover}</p>
+        <Icon
+          iconName='arrowInCircle'
+          className={`${sharedIconStyles} absolute bottom-8 right-8 `}
+        />
       </div>
-    </div>
+      <div
+        className={`${sharedStyles} ${boxStyle} ${
+          isFlipped ? '' : '[transform:rotate3d(1,-1,0,180deg)]'
+        } `}
+      >
+        <Icon
+          iconName='arrowInCircle'
+          className={`${sharedIconStyles} rotate-180`}
+        />
+        <p className='pt-8 text-left text-sm'>{content}</p>
+      </div>
+    </Button>
   );
 };
