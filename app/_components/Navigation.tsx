@@ -14,13 +14,13 @@ type Props = HtmlProps<'nav'> & {
 
 export const Navigation: FCProps<Props> = ({
   navItems,
-  className = '',
+  className,
   ...props
 }) => {
   const [activeSection, setActiveSection] = useState<string>('top');
   const [navTargetId, setNavTargetId] = useState<string>('');
 
-  const sectionIds = navItems.map((item) => item.id);
+  const sectionIds = navItems.map((item) => item.id).toReversed();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +51,7 @@ export const Navigation: FCProps<Props> = ({
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView();
       window.history.pushState(null, '', `#${id}`);
     }
     setNavTargetId(id);
@@ -85,16 +85,15 @@ const getCurrentSectionId = (sectionIds: string[]): string => {
   const scrollY = window.scrollY;
   const isAtBottom =
     window.innerHeight + scrollY >= document.documentElement.scrollHeight - 10;
-  const fromBottomUpIds = sectionIds.toReversed();
 
   if (isAtBottom) {
-    return fromBottomUpIds[0];
+    return sectionIds[0];
   }
 
   const navHeight = document.querySelector('header')?.offsetHeight;
   const navOffset = navHeight ? navHeight + 40 : 100;
 
-  const activeSection = fromBottomUpIds.find((id) => {
+  const activeSection = sectionIds.find((id) => {
     const element = document.getElementById(id);
     if (element) {
       const rect = element.getBoundingClientRect();

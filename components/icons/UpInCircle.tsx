@@ -1,7 +1,7 @@
 import { FCProps, HtmlProps } from '@/types';
 
 export const UpInCircle: FCProps<HtmlProps<'svg'>> = ({
-  className = '',
+  className,
   ...props
 }) => {
   return (
@@ -11,7 +11,6 @@ export const UpInCircle: FCProps<HtmlProps<'svg'>> = ({
       height='24'
       viewBox='0 0 24 24'
       fill='none'
-      xmlns='http://www.w3.org/2000/svg'
       {...props}
     >
       <rect

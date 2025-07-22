@@ -30,7 +30,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
             className='object-cover w-full'
             priority
           />
-          <NameCircle className='fill-fg absolute bottom-3 left-1.5 spin' />
+          <NameCircle className='absolute bottom-3 left-1.5 spin' />
         </div>
       </div>
     </Section>

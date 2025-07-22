@@ -4,7 +4,7 @@ type Props = HtmlProps<'div'> & {
   label: string;
 };
 
-export const Chip: FCProps<Props> = ({ label, className = '', ...props }) => {
+export const Chip: FCProps<Props> = ({ label, className, ...props }) => {
   return (
     <div
       {...props}

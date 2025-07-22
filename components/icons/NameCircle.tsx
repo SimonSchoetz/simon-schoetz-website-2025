@@ -1,15 +1,16 @@
 import { FCProps, HtmlProps } from '@/types';
 
 export const NameCircle: FCProps<HtmlProps<'svg'>> = ({
-  className = '',
+  className,
   ...props
 }) => {
   return (
     <svg
-      xmlns='http://www.w3.org/2000/svg'
       width='115'
       height='108'
-      fill='none'
+      viewBox='0 0 115 108'
+      fill='currentColor'
+      aria-hidden={props['aria-label'] ? undefined : true}
       className={className}
       {...props}
     >

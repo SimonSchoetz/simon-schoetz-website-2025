@@ -15,7 +15,7 @@ const boxStyle: string = 'w-full h-full bg-bg-2 rounded-4xl p-8';
 export const FlipCard: FCProps<Props> = ({
   cover,
   content,
-  className = '',
+  className,
   ...props
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -29,7 +29,7 @@ export const FlipCard: FCProps<Props> = ({
 
   return (
     <Button
-      className={`${className} w-full h-full h-min-fit transform-3d`}
+      className={`${className} w-full h-full transform-3d`}
       config='container'
       aria-label='Flip card'
       onClick={handleFlip}

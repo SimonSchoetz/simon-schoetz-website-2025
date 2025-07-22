@@ -37,7 +37,7 @@ type Props =
 
 export const Button: FCProps<Props> = ({
   config = 'default',
-  className = '',
+  className,
   ...props
 }) => {
   const sharedStyles = 'hover:cursor-pointer';

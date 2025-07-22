@@ -11,7 +11,7 @@ type Props = { iconName: keyof typeof iconList };
 
 export const Icon: FCProps<HtmlProps<'svg'> & Props> = ({
   iconName,
-  className = '',
+  className,
   ...props
 }) => {
   const IconComponent = iconList[iconName];
