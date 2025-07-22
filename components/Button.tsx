@@ -101,9 +101,7 @@ const DefaultButton: FCProps<DefaultButtonProps> = ({
       {icon && (
         <Icon
           iconName={icon}
-          className={`${
-            flipIcon ? '' : 'rotate-x-180'
-          } stroke-bg duration-600 `}
+          className={`${flipIcon ? '' : 'rotate-x-180'} duration-600 `}
         />
       )}
     </button>

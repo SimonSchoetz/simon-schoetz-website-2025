@@ -72,7 +72,7 @@ export const Navigation: FCProps<Props> = ({
               onClick={() => handleClick(id)}
             >
               {label}
-              {activeSection !== id && <NavArrow className='fill-fg' />}
+              {activeSection !== id && <NavArrow />}
             </Button>
           </li>
         ))}

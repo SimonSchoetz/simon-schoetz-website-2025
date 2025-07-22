@@ -25,7 +25,7 @@ export const FlipCard: FCProps<Props> = ({
   const sharedStyles =
     'backface-hidden transition-transform duration-1000 group';
 
-  const sharedIconStyles = 'stroke-fg-2 group-hover:stroke-fg transition-all';
+  const sharedIconStyles = 'group-hover:stroke-fg transition-all';
 
   return (
     <Button
