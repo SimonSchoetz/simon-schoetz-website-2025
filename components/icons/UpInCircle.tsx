@@ -1,7 +1,7 @@
 import { FCProps, HtmlProps } from '@/types';
 
 export const UpInCircle: FCProps<HtmlProps<'svg'>> = ({
-  className,
+  className = '',
   ...props
 }) => {
   return (

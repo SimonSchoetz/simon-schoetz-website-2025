@@ -1,7 +1,7 @@
 import { FCProps, HtmlProps } from '@/types';
 
 export const ArrowInCircle: FCProps<HtmlProps<'svg'>> = ({
-  className,
+  className = '',
   ...props
 }) => {
   return (
