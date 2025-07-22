@@ -1,4 +1,5 @@
 import { Section, H1 } from '@/components';
+import { NameCircle } from '@/components/icons';
 import { FCProps, HtmlProps } from '@/types';
 import Image from 'next/image';
 
@@ -20,7 +21,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
           </div>
         </div>
 
-        <div className='flex-5'>
+        <div className='flex-5 relative'>
           <Image
             src='/hero-image.webp'
             alt='A portrait photo of Simon Schötz in a wine-red shirt and round glasses. He is standing in front of big doors with glass windows, one of which is partially open.'
@@ -29,6 +30,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
             className='object-cover w-full'
             priority
           />
+          <NameCircle className='fill-fg absolute bottom-3 left-1.5 spin' />
         </div>
       </div>
     </Section>
