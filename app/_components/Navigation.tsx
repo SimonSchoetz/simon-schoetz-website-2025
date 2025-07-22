@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components';
+import { NavArrow } from '@/components/icons';
 import { FCProps, HtmlProps } from '@/types';
 import { useEffect, useState } from 'react';
 
@@ -63,7 +64,7 @@ export const Navigation: FCProps<Props> = ({
           <li key={id}>
             <Button
               config='container'
-              className={`  ${
+              className={`flex content-center gap-2 ${
                 activeSection === id
                   ? 'hover:cursor-default'
                   : 'hover:underline'
@@ -71,7 +72,7 @@ export const Navigation: FCProps<Props> = ({
               onClick={() => handleClick(id)}
             >
               {label}
-              {activeSection === id ? '' : ' ➙'}
+              {activeSection !== id && <NavArrow className='fill-fg' />}
             </Button>
           </li>
         ))}
