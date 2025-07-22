@@ -32,6 +32,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
           <Icon
             iconName='nameCircle'
             className='absolute bottom-3 left-1.5 spin'
+            aria-hidden
           />
         </div>
       </div>
