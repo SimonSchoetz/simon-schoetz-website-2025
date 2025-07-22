@@ -44,8 +44,7 @@ export const Navigation: FCProps<Props> = ({
     handleScroll(); // Check initial state
 
     return () => window.removeEventListener('scroll', handleScroll);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sectionIds]);
+  }, [sectionIds, navTargetId]);
 
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
