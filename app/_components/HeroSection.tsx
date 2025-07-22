@@ -24,8 +24,8 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
           <Image
             src='/hero-image.webp'
             alt='A portrait photo of Simon Schötz in a wine-red shirt and round glasses. He is standing in front of big doors with glass windows, one of which is partially open.'
-            width={2129}
-            height={1584}
+            width={710}
+            height={528}
             className='object-cover w-full'
             priority
           />
