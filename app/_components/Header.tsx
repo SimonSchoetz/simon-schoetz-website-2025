@@ -11,23 +11,23 @@ type NavItem = {
 const NavItems: NavItem[] = [
   {
     id: 'top',
-    label: 'Home →',
+    label: 'Simon Schötz',
   },
   {
     id: 'principles',
-    label: 'Principles →',
+    label: 'Principles',
   },
   {
     id: 'projects',
-    label: 'Projects →',
+    label: 'Projects',
   },
   {
     id: 'career-paths',
-    label: 'Career Paths →',
+    label: 'Career Paths',
   },
   {
     id: 'contact',
-    label: 'Contact →',
+    label: 'Contact',
   },
 ];
 
@@ -94,12 +94,13 @@ export const Header = () => {
       <li key={id}>
         <Link
           href={`#${id}`}
-          className={`font-mono hover:underline cursor-pointer transition-all ${
-            activeSection === id ? 'font-bold' : 'text-fg-2'
+          className={` transition-all ${
+            activeSection === id ? 'cursor-default' : 'hover:underline'
           }`}
           onNavigate={() => setNavTargetId(id)}
         >
           {label}
+          {activeSection === id ? '' : ' →'}
         </Link>
       </li>
     ));
@@ -108,7 +109,7 @@ export const Header = () => {
   return (
     <header className='w-full max-sm:p-2 sticky top-0 z-10 mb-10'>
       <nav className='px-16 backdrop-blur-md'>
-        <ul className='flex gap-12 font-mono py-6 border-b border-fg-4'>
+        <ul className='flex gap-20 text-xs font-mono py-6 border-b border-fg-4'>
           {renderItems()}
         </ul>
       </nav>
