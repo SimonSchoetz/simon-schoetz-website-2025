@@ -1,5 +1,4 @@
-import { Section, H1 } from '@/components';
-import { NameCircle } from '@/components/icons';
+import { Section, H1, Icon } from '@/components';
 import { FCProps, HtmlProps } from '@/types';
 import Image from 'next/image';
 
@@ -30,7 +29,10 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
             className='object-cover w-full'
             priority
           />
-          <NameCircle className='absolute bottom-3 left-1.5 spin' />
+          <Icon
+            iconName='nameCircle'
+            className='absolute bottom-3 left-1.5 spin'
+          />
         </div>
       </div>
     </Section>

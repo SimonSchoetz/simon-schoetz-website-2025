@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@/components';
-import { NavArrow } from '@/components/icons';
+import { Button, Icon } from '@/components';
 import { FCProps, HtmlProps } from '@/types';
 import { useEffect, useState } from 'react';
 
@@ -72,7 +71,7 @@ export const Navigation: FCProps<Props> = ({
               onClick={() => handleClick(id)}
             >
               {label}
-              {activeSection !== id && <NavArrow />}
+              {activeSection !== id && <Icon iconName='navArrow' />}
             </Button>
           </li>
         ))}
