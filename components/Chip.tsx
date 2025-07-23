@@ -8,7 +8,7 @@ export const Chip: FCProps<Props> = ({ label, className, ...props }) => {
   return (
     <div
       {...props}
-      className={`bg-bg-2 rounded-full border border-fg-4 py-4 px-3 text-sm font-mono ${className}`}
+      className={`bg-bg-2 rounded-full border border-fg-4 py-3 px-2 font-mono text-xs lg:py-4 lg:px-3 lg:text-sm ${className}`}
     >
       {label}
     </div>

@@ -14,9 +14,9 @@ const MainPage: NextPage = () => {
 
       <PrinciplesSection />
 
-      {/* <ProjectsSection />
+      <ProjectsSection />
 
-      <CareerPathsSection />
+      {/* <CareerPathsSection />
 
       <ContactSection /> */}
     </main>

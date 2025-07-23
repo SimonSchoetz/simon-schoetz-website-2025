@@ -17,6 +17,7 @@ export const ExpandableCardItem: FCProps<PropsWithChildren<Props>> = ({
     <div {...props}>
       <div>
         <H4 text={title} className='inline' />
+
         {subTitle && <span>{subTitle}</span>}
       </div>
       {children}
