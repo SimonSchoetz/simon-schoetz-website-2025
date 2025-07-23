@@ -36,6 +36,7 @@
 
   --text-xs: 0.875rem; /* 14px */
   --text-sm: 1rem; /* 16px */
+  --text-md: 1.125rem; /* 18px */
   --text-base: var(--fs-base); /* 20px */
   --text-lg: 1.5rem; /* 24px */
   --text-2xl: 1.875rem; /* 30px */
@@ -63,10 +64,14 @@ html {
 }
 /* utility classes */
 
-.content-center {
-  @apply flex items-center justify-center;
+@layer utilities {
+  .content-center {
+    @apply flex items-center justify-center;
+  }
+  .section-padding {
+    @apply px-4 md:gap-14 lg:px-16;
+  }
 }
-
 /* animation classes */
 
 @keyframes spin {
