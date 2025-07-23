@@ -29,34 +29,44 @@ export const ContactSection = () => {
   return (
     <Section
       id='contact'
-      className='py-32 border-t border-fg-4 px-16 flex items-center'
+      className='py-20 border-t border-fg-4 section-padding flex justify-between items-center
+        max-md:flex-col max-md:content-center
+        lg:py-32'
     >
-      <div className='flex-1'>
+      <div className='mb-6 md:mb-0 md:flex-1'>
         <Image
+          className='object-cover float-left mr-4'
           src='/contact-avatar.webp'
           alt={`Round profile image of Simon Schötz looking directly at the camera with an encouraging smile.`}
           width={100}
           height={100}
-          className='object-cover float-left mr-4'
           priority
         />
         <H2
           text={`Let's \nconnect!`}
-          className='text-8xl whitespace-break-spaces'
+          className='text-8xl font-light whitespace-break-spaces
+          md:font-normal 
+          lg:!text-8xl'
         />
       </div>
 
-      <div className='flex flex-wrap gap-4 max-w-[400px] h-min justify-end'>
-        {contactChips.map((chip) => (
+      <div
+        className='grid grid-cols-2 gap-4 h-min w-full
+            md:justify-end md:flex md:flex-wrap md:max-w-[400px]'
+      >
+        {contactChips.map((chip, i) => (
           <Link
             href={chip.link}
             target='_blank'
             rel='noopener noreferrer'
             key={chip.label}
+            className={i === 0 ? 'col-span-2' : ''}
           >
             <Chip
               label={chip.label}
-              className='w-fit py-4 px-8 bg-transparent transition-colors hover:bg-bg-2'
+              className='w-full bg-transparent transition-colors hover:bg-bg-2 content-center
+                md:w-fit md:py-4 md:px-8
+                lg:py-4 lg:px-8'
             />
           </Link>
         ))}

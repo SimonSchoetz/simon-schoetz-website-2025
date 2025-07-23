@@ -9,7 +9,7 @@ import {
 
 const MainPage: NextPage = () => {
   return (
-    <main className='flex flex-col gap-32'>
+    <main className='flex flex-col gap-20 lg:gap-32'>
       <HeroSection />
 
       <PrinciplesSection />
@@ -18,7 +18,7 @@ const MainPage: NextPage = () => {
 
       <CareerPathsSection />
 
-      {/* <ContactSection /> */}
+      <ContactSection />
     </main>
   );
 };
