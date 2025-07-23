@@ -9,16 +9,16 @@ import {
 
 const MainPage: NextPage = () => {
   return (
-    <main className='flex flex-col gap-32 max-sm:p-2'>
+    <main className='flex flex-col gap-32'>
       <HeroSection />
-
+      {/* 
       <PrinciplesSection />
 
       <ProjectsSection />
 
       <CareerPathsSection />
 
-      <ContactSection />
+      <ContactSection /> */}
     </main>
   );
 };

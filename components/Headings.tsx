@@ -6,12 +6,13 @@ type Props = {
 
 const font = 'font-thunder';
 
-export const H1: FCProps<HtmlProps<'h1'> & Props> = ({ text, ...props }) => {
+export const H1: FCProps<HtmlProps<'h1'> & Props> = ({
+  text,
+  className,
+  ...props
+}) => {
   return (
-    <h1
-      {...props}
-      className={`text-[clamp(2.5rem,10vw,10.5rem)] leading-[1] uppercase ${font} ${props.className}`}
-    >
+    <h1 {...props} className={`leading-[1] uppercase ${font} ${className}`}>
       {text}
     </h1>
   );

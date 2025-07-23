@@ -3,37 +3,65 @@ import { FCProps, HtmlProps } from '@/types';
 import Image from 'next/image';
 
 export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
+  // const tabletStyle = 'md'; 768px
+  // const desktopStyle = 'lg'; 1024px
   return (
-    <Section {...props} id='top' className='px-16'>
-      <div className='flex flex-col sm:flex-row content-center sm:items-start gap-9 '>
-        <div className='flex-4 flex flex-col gap-6'>
-          <H1 text='Simon Schötz' />
+    <Section
+      {...props}
+      id='top'
+      className='flex flex-col gap-18.5 px-4 
+        md:gap-14
+        lg:px-16 lg:flex-row-reverse'
+    >
+      <div
+        className='relative 
+            lg:flex-5 max-h-fit'
+      >
+        <Image
+          src='/hero-image.webp'
+          alt='A portrait photo of Simon Schötz in a wine-red shirt and round glasses. He is standing in front of big doors with glass windows, one of which is partially open.'
+          width={710}
+          height={528}
+          className='object-cover w-full'
+          priority
+        />
+        <Icon
+          iconName='nameCircle'
+          // bottom = 12px, left = 6px at full width
+          className='spin absolute bottom-[2.29%] left-[0.85%] w-1/6 h-auto'
+          aria-hidden
+        />
+      </div>
 
-          <p className='font-mono text-lg '>
+      <div
+        className='flex flex-col gap-6
+          md:grid md:grid-cols-2 
+          lg:flex fl-col flex-4
+     '
+      >
+        <H1
+          text='Simon Schötz'
+          className='text-[clamp(6.5rem,20vw,8rem)]
+           md:text-[clamp(8rem,12vw,10.5rem)]
+        '
+        />
+
+        <div className='flex flex-col content-center gap-6'>
+          <p
+            className='font-mono text-fs-base 
+              md:text-[clamp(1.25rem,2vw,1.5rem)]'
+          >
             Building projects together with Creativity, Conscience, and Purpose.
           </p>
 
-          <div className='font-mono whitespace-break-spaces text-lg flex gap-2'>
-            <p className='flex-1'>Web Developer,{'\n'}Sound Engineer</p>
+          <div
+            className='grid grid-cols-2 w-full gap-2 font-mono whitespace-break-spaces text-sm 
+              md:text-[clamp(1rem,2vw,1.375rem)]'
+          >
+            <p className=''>Web Developer,{'\n'}Sound Engineer</p>
 
-            <p className='flex-1'>Based in Berlin,{'\n'}Germany</p>
+            <p className=''>Based in Berlin,{'\n'}Germany</p>
           </div>
-        </div>
-
-        <div className='flex-5 relative'>
-          <Image
-            src='/hero-image.webp'
-            alt='A portrait photo of Simon Schötz in a wine-red shirt and round glasses. He is standing in front of big doors with glass windows, one of which is partially open.'
-            width={710}
-            height={528}
-            className='object-cover w-full'
-            priority
-          />
-          <Icon
-            iconName='nameCircle'
-            className='absolute bottom-3 left-1.5 spin'
-            aria-hidden
-          />
         </div>
       </div>
     </Section>
