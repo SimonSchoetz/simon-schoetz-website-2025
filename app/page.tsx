@@ -11,10 +11,10 @@ const MainPage: NextPage = () => {
   return (
     <main className='flex flex-col gap-32'>
       <HeroSection />
-      {/* 
+
       <PrinciplesSection />
 
-      <ProjectsSection />
+      {/* <ProjectsSection />
 
       <CareerPathsSection />
 

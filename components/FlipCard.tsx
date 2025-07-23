@@ -10,8 +10,6 @@ type Props = HtmlProps<'button'> & {
   content: string;
 };
 
-const boxStyle: string = 'w-full h-full bg-bg-2 rounded-4xl p-8';
-
 export const FlipCard: FCProps<Props> = ({
   cover,
   content,
@@ -21,6 +19,8 @@ export const FlipCard: FCProps<Props> = ({
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlip = () => setIsFlipped(!isFlipped);
+
+  const boxStyle: string = 'w-full h-full bg-bg-2 rounded-4xl p-8';
 
   const sharedStyles =
     'backface-hidden transition-transform duration-1000 group';
@@ -55,7 +55,7 @@ export const FlipCard: FCProps<Props> = ({
           iconName='arrowInCircle'
           className={`${sharedIconStyles} rotate-180`}
         />
-        <p className='pt-8 text-left text-sm'>{content}</p>
+        <p className='pt-8 text-left text-sm lg:text-md'>{content}</p>
       </div>
     </Button>
   );

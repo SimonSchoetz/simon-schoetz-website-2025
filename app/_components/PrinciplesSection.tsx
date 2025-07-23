@@ -6,12 +6,16 @@ export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
   ...props
 }) => {
   return (
-    <Section {...props} id='principles' className={`px-16 ${className}`}>
+    <Section
+      {...props}
+      id='principles'
+      className={`section-padding ${className}`}
+    >
       <H2 text='Principles' className='mb-4' />
 
-      <ul className='flex gap-8'>
+      <ul className='grid md:grid-cols-2 gap-8 lg:grid-cols-3'>
         {principles.map(({ cover, content }) => (
-          <li key={cover} className='w-1/3'>
+          <li key={cover}>
             <FlipCard cover={cover} content={content} />
           </li>
         ))}
