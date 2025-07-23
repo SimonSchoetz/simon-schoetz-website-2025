@@ -138,8 +138,8 @@ const HeaderButton: FCProps<HeaderButtonProps> = ({
       className={`flex justify-between items-center bg-fg text-bg ${className}`}
       {...props}
     >
-      <div className='flex content-center gap-8'>
-        <H3 className='uppercase font-medium' text={label} />
+      <div className='flex flex-col items-start md:flex-row md:content-center md:items-center md:gap-8'>
+        <H3 className='uppercase text-3xl font-medium' text={label} />
 
         {subLabel && <span className='text-base'>{subLabel}</span>}
       </div>

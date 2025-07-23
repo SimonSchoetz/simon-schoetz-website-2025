@@ -28,7 +28,7 @@ export const ExpandableCard: FCProps<Props> = ({
   return (
     <div {...props} className='bg-bg-2 rounded-4xl p-8 lg:p-14'>
       <div className='flex flex-col gap-6 lg:flex-row justify-between lg:items-center mb-10'>
-        <H3 text={title} />
+        <H3 text={title} className='text-4xl' />
 
         <p className='uppercase lg:text-lg'>{subheading}</p>
       </div>

@@ -34,12 +34,12 @@ export const ExpandableChip: FCProps<Props> = ({
         onClick={() => setIsExpanded(!isExpanded)}
         icon='upInCircle'
         flipIcon={isExpanded}
-        className='p-8 rounded-[3.5rem]'
+        className='p-6 lg:p-8 rounded-[3.5rem]'
       />
 
       <ExpandableDiv
         isExpanded={isExpanded}
-        className={`px-8 ${contentContainerClassName}`}
+        className={`px-6 lg:px-8 ${contentContainerClassName}`}
       >
         {expandableContent}
       </ExpandableDiv>

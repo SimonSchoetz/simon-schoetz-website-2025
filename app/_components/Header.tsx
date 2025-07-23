@@ -30,7 +30,7 @@ const NavItems: NavItem[] = [
 
 export const Header = () => {
   return (
-    <header className='w-full max-sm:p-2 sticky top-0 z-10 mb-10'>
+    <header className='w-full sticky top-0 z-10 mb-10'>
       <Navigation navItems={NavItems} />
     </header>
   );

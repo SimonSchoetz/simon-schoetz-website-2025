@@ -8,7 +8,7 @@ export const CareerPathsSection: FCProps<HtmlProps<'section'>> = ({
     <Section
       {...props}
       id='career-paths'
-      className='flex flex-col gap-10 px-16'
+      className='flex flex-col gap-10 section-padding'
     >
       <H2 text='Career Paths' />
       {careerPaths.map((careerPath) => (

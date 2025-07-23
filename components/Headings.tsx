@@ -32,9 +32,13 @@ export const H2: FCProps<HtmlProps<'h2'> & Props> = ({ text, ...props }) => {
   );
 };
 
-export const H3: FCProps<HtmlProps<'h3'> & Props> = ({ text, ...props }) => {
+export const H3: FCProps<HtmlProps<'h3'> & Props> = ({
+  text,
+  className,
+  ...props
+}) => {
   return (
-    <h3 {...props} className={`text-4xl uppercase ${font} ${props.className}`}>
+    <h3 {...props} className={`uppercase ${font} ${className}`}>
       {text}
     </h3>
   );
