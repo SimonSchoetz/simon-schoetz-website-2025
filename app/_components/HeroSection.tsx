@@ -34,12 +34,12 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
       <div
         className='flex flex-col gap-6
           md:grid md:grid-cols-2 
-          lg:flex fl-col flex-4
+          lg:flex lg:flex-4
      '
       >
         <H1 text='Simon Schötz' />
 
-        <div className='flex flex-col content-center gap-6'>
+        <div className='flex flex-col container-center gap-6'>
           <p
             className='font-mono text-fs-base 
               md:text-[clamp(1.25rem,2vw,1.5rem)]'
@@ -51,9 +51,9 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
             className='grid grid-cols-2 w-full gap-2 font-mono whitespace-break-spaces text-sm 
               md:text-[clamp(1rem,2vw,1.375rem)]'
           >
-            <p className=''>Web Developer,{'\n'}Sound Engineer</p>
+            <p>Web Developer,{'\n'}Sound Engineer</p>
 
-            <p className=''>Based in Berlin,{'\n'}Germany</p>
+            <p>Based in Berlin,{'\n'}Germany</p>
           </div>
         </div>
       </div>

@@ -62,7 +62,7 @@ export const Navigation: FCProps<Props> = ({
           <li key={id}>
             <Button
               config='container'
-              className={`flex content-center gap-2 ${
+              className={`flex container-center gap-2 ${
                 activeSection === id
                   ? 'hover:cursor-default'
                   : 'hover:underline'

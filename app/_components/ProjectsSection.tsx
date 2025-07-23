@@ -5,7 +5,7 @@ type Props = object;
 
 export const ProjectsSection: FCProps<Props> = ({ ...props }) => {
   return (
-    <Section {...props} id='projects' className='section-padding'>
+    <Section id='projects' className='section-padding' {...props}>
       <H2 text='Projects' className='mb-4' />
       <ExpandableCard
         title='Femlives'

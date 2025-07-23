@@ -30,7 +30,7 @@ export const ContactSection = () => {
     <Section
       id='contact'
       className='py-20 border-t border-fg-4 section-padding flex justify-between items-center
-        max-md:flex-col max-md:content-center
+        max-md:flex-col max-md:container-center
         lg:py-32'
     >
       <div className='mb-6 md:mb-0 md:flex-1'>
@@ -64,7 +64,7 @@ export const ContactSection = () => {
           >
             <Chip
               label={chip.label}
-              className='w-full bg-transparent transition-colors hover:bg-bg-2 content-center
+              className='w-full bg-transparent transition-colors hover:bg-bg-2 container-center
                 md:w-fit md:py-4 md:px-8
                 lg:py-4 lg:px-8'
             />

@@ -38,7 +38,7 @@ export const FlipCard: FCProps<Props> = ({
       <div
         className={`${sharedStyles} ${boxStyle} ${
           isFlipped ? '[transform:rotate3d(1,-1,0,-180deg)]' : ''
-        } absolute content-center`}
+        } absolute container-center`}
       >
         <p className='text-5xl font-thunder font-light'>{cover}</p>
         <Icon

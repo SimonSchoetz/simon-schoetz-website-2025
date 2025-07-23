@@ -2,7 +2,7 @@ import { Section, H2, FlipCard } from '@/components';
 import { FCProps, HtmlProps } from '@/types';
 
 export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
-  className,
+  className = '',
   ...props
 }) => {
   return (

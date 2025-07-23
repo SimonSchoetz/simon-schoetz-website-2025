@@ -94,7 +94,7 @@ const DefaultButton: FCProps<DefaultButtonProps> = ({
   return (
     <button
       aria-label={props['aria-label'] ?? label}
-      className={`content-center uppercase gap-2 py-4 px-8 bg-fg text-bg text-sm font-bold rounded-2xl leading-0 ${className}`}
+      className={`container-center uppercase gap-2 py-4 px-8 bg-fg text-bg text-sm font-bold rounded-2xl leading-0 ${className}`}
       {...props}
     >
       {label}
@@ -138,7 +138,7 @@ const HeaderButton: FCProps<HeaderButtonProps> = ({
       className={`flex justify-between items-center bg-fg text-bg ${className}`}
       {...props}
     >
-      <div className='flex flex-col items-start md:flex-row md:content-center md:items-center md:gap-8'>
+      <div className='flex flex-col items-start md:flex-row md:container-center md:items-center md:gap-8'>
         <H3 className='uppercase text-3xl font-medium' text={label} />
 
         {subLabel && <span className='text-base'>{subLabel}</span>}

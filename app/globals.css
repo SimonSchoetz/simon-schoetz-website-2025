@@ -64,13 +64,9 @@ html {
 }
 /* utility classes */
 
-/* 
-  tablet = 'md'; 768px
-  desktop = 'lg'; 1024px
-  desktopBig = 'xl'; 1280px
-*/
+/* Breakpoints — md: 768 px | lg: 1024 px | xl: 1280 px */
 @layer utilities {
-  .content-center {
+  .container-center {
     @apply flex items-center justify-center;
   }
   .section-padding {
