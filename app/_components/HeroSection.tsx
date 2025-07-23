@@ -3,15 +3,12 @@ import { FCProps, HtmlProps } from '@/types';
 import Image from 'next/image';
 
 export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
-  // const tabletStyle = 'md'; 768px
-  // const desktopStyle = 'lg'; 1024px
   return (
     <Section
       {...props}
       id='top'
-      className='flex flex-col gap-18.5 px-4 
-        md:gap-14
-        lg:px-16 lg:flex-row-reverse'
+      className='flex flex-col gap-18.5 section-padding
+        lg:flex-row-reverse'
     >
       <div
         className='relative 
@@ -39,12 +36,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
           lg:flex fl-col flex-4
      '
       >
-        <H1
-          text='Simon Schötz'
-          className='text-[clamp(6.5rem,20vw,8rem)]
-           md:text-[clamp(8rem,12vw,10.5rem)]
-        '
-        />
+        <H1 text='Simon Schötz' />
 
         <div className='flex flex-col content-center gap-6'>
           <p

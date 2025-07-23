@@ -12,7 +12,10 @@ export const H1: FCProps<HtmlProps<'h1'> & Props> = ({
   ...props
 }) => {
   return (
-    <h1 {...props} className={`leading-[1] uppercase ${font} ${className}`}>
+    <h1
+      {...props}
+      className={`text-[clamp(6.5rem,20vw,8rem)] md:text-[clamp(8rem,12vw,10.5rem)] leading-[1] uppercase ${font} ${className}`}
+    >
       {text}
     </h1>
   );
