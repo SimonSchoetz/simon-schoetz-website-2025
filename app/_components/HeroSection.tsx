@@ -8,6 +8,7 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
       {...props}
       id='top'
       className='flex flex-col gap-18.5 section-padding
+        md:gap-14
         lg:flex-row-reverse'
     >
       <div
