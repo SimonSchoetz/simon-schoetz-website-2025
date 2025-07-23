@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { geistMono, geistSans, thunderFont } from '@/_fonts';
 
-import { Header } from './_components/Header';
-import { Footer } from './_components/Footer';
+import { Footer } from './_components';
 
 export const metadata: Metadata = {
   title: 'Simon Schötz',
@@ -20,7 +19,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${thunderFont.variable} pt-1.5 antialiased container-center flex-col w-full max-w-[1440px]`}
       >
-        <Header />
+        {/* <Header /> */}
         {children}
         <Footer />
       </body>

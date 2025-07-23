@@ -31,7 +31,7 @@ const NavItems: NavItem[] = [
 export const Header = () => {
   return (
     <header className='w-full sticky top-0 z-10 mb-10'>
-      {/* <Navigation navItems={NavItems} /> */}
+      <Navigation navItems={NavItems} />
     </header>
   );
 };
