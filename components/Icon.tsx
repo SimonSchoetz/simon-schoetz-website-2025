@@ -7,6 +7,7 @@ const iconList = {
   upInCircle: Icons.UpInCircle,
   navArrow: Icons.NavArrow,
   nameCircle: Icons.NameCircle,
+  closeX: Icons.CloseX,
 } satisfies Record<string, React.FC<HtmlProps<'svg'>>>;
 
 type Props = { iconName: keyof typeof iconList };
