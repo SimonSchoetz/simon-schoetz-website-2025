@@ -17,7 +17,6 @@ export const DesktopNav: FCProps<NavProps> = ({
               activeId === id ? 'hover:!cursor-default' : 'hover:underline'
             }`}
             onClick={() => handleClick(id)}
-            disabled={activeId === id}
             aria-current={activeId === id ? 'page' : undefined}
             aria-label={`Navigate to ${label}`}
           >
