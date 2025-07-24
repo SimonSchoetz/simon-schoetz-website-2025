@@ -1,23 +1,38 @@
 'use client';
 
-import { Button, Icon } from '@/components';
 import { FCProps, HtmlProps } from '@/types';
 import { useEffect, useState } from 'react';
+import { NavItem, DesktopNav, MobileNav } from './components';
 
-type Props = HtmlProps<'nav'> & {
-  navItems: {
-    id: string;
-    label: string;
-  }[];
-};
+const navItems: NavItem[] = [
+  {
+    id: 'top',
+    label: 'Simon Schötz',
+  },
+  {
+    id: 'principles',
+    label: 'Principles',
+  },
+  {
+    id: 'projects',
+    label: 'Projects',
+  },
+  {
+    id: 'career-paths',
+    label: 'Career Paths',
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+  },
+] as const;
 
-export const Navigation: FCProps<Props> = ({
-  navItems,
+export const Navigation: FCProps<HtmlProps<'nav'>> = ({
   className,
   ...props
 }) => {
-  const [activeSection, setActiveSection] = useState<string>('top');
-  const [navTargetId, setNavTargetId] = useState<string>('');
+  const [activeId, setActiveId] = useState<NavItem['id']>('');
+  const [TargetId, setTargetId] = useState<NavItem['id']>('');
 
   const sectionIds = navItems.map((item) => item.id).toReversed();
 
@@ -25,18 +40,18 @@ export const Navigation: FCProps<Props> = ({
     const handleScroll = () => {
       const currentSectionId = getCurrentSectionId(sectionIds);
 
-      if (navTargetId) {
-        const isNavigating = navTargetId !== currentSectionId;
+      if (TargetId) {
+        const isNavigating = TargetId !== currentSectionId;
 
         if (isNavigating) {
-          setActiveSection(navTargetId);
+          setActiveId(TargetId);
         } else {
-          setNavTargetId('');
+          setTargetId('');
         }
         return;
       }
 
-      setActiveSection(currentSectionId);
+      setActiveId(currentSectionId);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -44,7 +59,7 @@ export const Navigation: FCProps<Props> = ({
     handleScroll(); // Check initial state
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [sectionIds, navTargetId]);
+  }, [sectionIds, TargetId]);
 
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
@@ -52,29 +67,27 @@ export const Navigation: FCProps<Props> = ({
       element.scrollIntoView();
       window.history.pushState(null, '', `#${id}`);
     }
-    setNavTargetId(id);
+    setTargetId(id);
   };
 
   return (
-    <nav className={`px-16 backdrop-blur-md ${className}`} {...props}>
-      <ul className='flex gap-20 py-6 border-b border-fg-4 text-xs font-mono'>
-        {navItems.map(({ id, label }) => (
-          <li key={id}>
-            <Button
-              config='container'
-              className={`flex container-center gap-2 ${
-                activeSection === id
-                  ? 'hover:cursor-default'
-                  : 'hover:underline'
-              }`}
-              onClick={() => handleClick(id)}
-            >
-              {label}
-              {activeSection !== id && <Icon iconName='navArrow' />}
-            </Button>
-          </li>
-        ))}
-      </ul>
+    <nav
+      className={`px-4 backdrop-blur-md ${className}
+          lg:px-8
+          xl:px-16`}
+      {...props}
+    >
+      <DesktopNav
+        navItems={navItems}
+        activeId={activeId}
+        handleClick={handleClick}
+      />
+
+      <MobileNav
+        navItems={navItems}
+        activeId={activeId}
+        handleClick={handleClick}
+      />
     </nav>
   );
 };
@@ -91,7 +104,7 @@ const getCurrentSectionId = (sectionIds: string[]): string => {
   const navHeight = document.querySelector('header')?.offsetHeight;
   const navOffset = navHeight ? navHeight + 40 : 100;
 
-  const activeSection = sectionIds.find((id) => {
+  const activeId = sectionIds.find((id) => {
     const element = document.getElementById(id);
     if (element) {
       const rect = element.getBoundingClientRect();
@@ -100,5 +113,5 @@ const getCurrentSectionId = (sectionIds: string[]): string => {
     }
   });
 
-  return activeSection || 'top';
+  return activeId || 'top';
 };
