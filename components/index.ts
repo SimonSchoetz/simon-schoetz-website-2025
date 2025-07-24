@@ -9,3 +9,4 @@ export * from './Headings';
 export * from './Icon';
 export * from './RouterItem';
 export * from './Section';
+export * from './BurgerMenuButton';
