@@ -1,8 +1,9 @@
 'use client';
 
 import { FCProps, HtmlProps } from '@/types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { NavItem, DesktopNav, MobileNav } from './components';
+import { useThrottledScroll } from '@/hooks';
 
 const navItems: NavItem[] = [
   {
@@ -32,34 +33,26 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
   ...props
 }) => {
   const [activeId, setActiveId] = useState<NavItem['id']>('');
-  const [TargetId, setTargetId] = useState<NavItem['id']>('');
+  const [targetId, setTargetId] = useState<NavItem['id']>('');
 
   const sectionIds = navItems.map((item) => item.id).toReversed();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentSectionId = getCurrentSectionId(sectionIds);
+  useThrottledScroll(() => {
+    const currentSectionId = getCurrentSectionId(sectionIds);
 
-      if (TargetId) {
-        const isNavigating = TargetId !== currentSectionId;
+    if (targetId) {
+      const isNavigating = targetId !== currentSectionId;
 
-        if (isNavigating) {
-          setActiveId(TargetId);
-        } else {
-          setTargetId('');
-        }
-        return;
+      if (isNavigating) {
+        setActiveId(targetId);
+      } else {
+        setTargetId('');
       }
+      return;
+    }
 
-      setActiveId(currentSectionId);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    handleScroll(); // Check initial state
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [sectionIds, TargetId]);
+    setActiveId(currentSectionId);
+  }, 100);
 
   const handleClick = (id: string) => {
     const element = document.getElementById(id);
@@ -72,6 +65,7 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
 
   return (
     <nav
+      aria-label='Primary'
       className={`px-4 backdrop-blur-md ${className}
           lg:px-8
           xl:px-16`}
@@ -93,16 +87,21 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
 };
 
 const getCurrentSectionId = (sectionIds: string[]): string => {
+  const bottomThreshold = 10;
+  const navPaddingOffset = 40;
+  const defaultNavOffset = 100;
+
   const scrollY = window.scrollY;
   const isAtBottom =
-    window.innerHeight + scrollY >= document.documentElement.scrollHeight - 10;
+    window.innerHeight + scrollY >=
+    document.documentElement.scrollHeight - bottomThreshold;
 
   if (isAtBottom) {
     return sectionIds[0];
   }
 
   const navHeight = document.querySelector('header')?.offsetHeight;
-  const navOffset = navHeight ? navHeight + 40 : 100;
+  const navOffset = navHeight ? navHeight + navPaddingOffset : defaultNavOffset;
 
   const activeId = sectionIds.find((id) => {
     const element = document.getElementById(id);
