@@ -1,6 +1,8 @@
+'use client';
+
 import { BurgerMenuButton, Button, Icon } from '@/components';
 import { FCProps } from '@/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavProps } from './nav.type';
 
 export const MobileNav: FCProps<NavProps> = ({
@@ -11,6 +13,22 @@ export const MobileNav: FCProps<NavProps> = ({
   const currentSection = navItems.find((item) => item.id === activeId);
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
   return (
     <div className='lg:hidden text-xs sm:text-sm'>
       <div className='h-16 flex items-center justify-between'>
@@ -20,12 +38,24 @@ export const MobileNav: FCProps<NavProps> = ({
       </div>
 
       <div
-        className={`absolute top-0 right-0 w-4/5 h-screen bg-bg-2 transition-all ease-in-out duration-350 ${
+        aria-hidden
+        className={`absolute top-0 w-full left-0 h-screen ease-in-out duration-350 bg-black/70 ${
+          isOpen ? 'translate-y-0' : '-translate-y-full opacity-0'
+        }`}
+        onClick={() => setIsOpen(false)}
+      ></div>
+
+      <div
+        role='dialog'
+        aria-modal='true'
+        aria-label='Mobile navigation menu'
+        className={`absolute top-0 right-0 w-4/5 h-screen bg-bg-2 transition-all ease-in-out duration-350 z-50 ${
           isOpen ? 'translate-y-0' : '-translate-y-full opacity-0'
         }`}
       >
         <div className='h-16 flex items-center justify-end pr-4'>
           <Button
+            aria-label='Close mobile menu'
             config='container'
             className='w-8 h-8 items-center justify-end flex'
             onClick={() => setIsOpen(false)}
@@ -46,6 +76,8 @@ export const MobileNav: FCProps<NavProps> = ({
                   handleClick(id);
                   setIsOpen(false);
                 }}
+                aria-current={activeId === id ? 'page' : undefined}
+                aria-label={`Navigate to ${label}`}
               >
                 {label}
                 {activeId !== id && <Icon iconName='navArrow' />}
