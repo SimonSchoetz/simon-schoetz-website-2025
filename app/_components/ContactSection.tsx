@@ -33,7 +33,7 @@ export const ContactSection = () => {
         max-md:flex-col max-md:container-center
         lg:py-32'
     >
-      <div className='mb-6 md:mb-0 md:flex-1'>
+      <div className='mb-6 md:mb-0 md:flex-1 w-full'>
         <Image
           className='object-cover float-left mr-4'
           src='/contact-avatar.webp'
@@ -44,9 +44,7 @@ export const ContactSection = () => {
         />
         <H2
           text={`Let's \nconnect!`}
-          className='text-8xl font-light whitespace-break-spaces
-          md:font-normal 
-          lg:!text-8xl'
+          className='whitespace-break-spaces lg:!text-8xl'
         />
       </div>
 
