@@ -20,16 +20,15 @@ export const FlipCard: FCProps<Props> = ({
 
   const handleFlip = () => setIsFlipped(!isFlipped);
 
-  const boxStyle: string = 'w-full h-full bg-bg-2 rounded-4xl p-8';
+  const boxStyle: string = 'bg-bg-2 rounded-4xl p-8';
 
-  const sharedStyles =
-    'backface-hidden transition-transform duration-1000 group';
+  const sharedStyles = 'backface-hidden transition-all duration-1000 group';
 
   const sharedIconStyles = 'group-hover:stroke-fg transition-all';
 
   return (
     <Button
-      className={`${className} w-full h-full transform-3d`}
+      className={`${className} transform-3d`}
       config='container'
       aria-label='Flip card'
       onClick={handleFlip}
@@ -37,8 +36,10 @@ export const FlipCard: FCProps<Props> = ({
     >
       <div
         className={`${sharedStyles} ${boxStyle} ${
-          isFlipped ? '[transform:rotate3d(1,-1,0,-180deg)]' : ''
-        } absolute container-center`}
+          isFlipped
+            ? '[transform:rotate3d(1,-1,0,-180deg)] scale-[10%] text-bg' //todo: add color of respective card to transition
+            : ''
+        } absolute container-center w-full h-full`}
       >
         <p className='text-5xl font-thunder font-light'>{cover}</p>
         <Icon
@@ -48,7 +49,9 @@ export const FlipCard: FCProps<Props> = ({
       </div>
       <div
         className={`${sharedStyles} ${boxStyle} ${
-          isFlipped ? '' : '[transform:rotate3d(1,-1,0,180deg)]'
+          isFlipped
+            ? ''
+            : '[transform:rotate3d(1,-1,0,180deg)] scale-[10%] text-bg'
         } `}
       >
         <Icon
