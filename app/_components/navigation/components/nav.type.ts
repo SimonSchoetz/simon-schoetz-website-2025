@@ -1,7 +1,7 @@
-export type NavItem = {
+export type NavItem = Readonly<{
   id: string;
   label: string;
-};
+}>;
 
 export type NavProps = {
   navItems: ReadonlyArray<NavItem>;

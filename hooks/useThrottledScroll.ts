@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export const useThrottledScroll = (
   callback: () => void,
   delay: number = 100
-) => {
+): void => {
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
 
@@ -16,7 +16,7 @@ export const useThrottledScroll = (
       }, delay);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     callback();
 

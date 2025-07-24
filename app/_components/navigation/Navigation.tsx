@@ -86,6 +86,8 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
   );
 };
 
+let headerElement: HTMLElement | null = null;
+
 const getCurrentSectionId = (sectionIds: string[]): string => {
   const bottomThreshold = 10;
   const navPaddingOffset = 40;
@@ -100,15 +102,16 @@ const getCurrentSectionId = (sectionIds: string[]): string => {
     return sectionIds[0];
   }
 
-  const navHeight = document.querySelector('header')?.offsetHeight;
+  headerElement = document.querySelector('header') ?? null;
+
+  const navHeight = headerElement?.offsetHeight;
+
   const navOffset = navHeight ? navHeight + navPaddingOffset : defaultNavOffset;
 
   const activeId = sectionIds.find((id) => {
     const element = document.getElementById(id);
     if (element) {
-      const rect = element.getBoundingClientRect();
-      const elementTop = rect.top + scrollY;
-      return scrollY + navOffset >= elementTop;
+      return scrollY + navOffset >= element.offsetTop;
     }
   });
 
