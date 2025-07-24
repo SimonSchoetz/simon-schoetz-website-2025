@@ -4,7 +4,7 @@ export type NavItem = {
 };
 
 export type NavProps = {
-  navItems: NavItem[];
+  navItems: ReadonlyArray<NavItem>;
   activeId: NavItem['id'];
-  handleClick: (id: string) => void;
+  handleClick: (id: NavItem['id']) => void;
 };

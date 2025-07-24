@@ -1,3 +1,4 @@
+export * from './BurgerMenuButton';
 export * from './Button';
 export * from './Chip';
 export * from './ExpandableDiv';
@@ -9,4 +10,3 @@ export * from './Headings';
 export * from './Icon';
 export * from './RouterItem';
 export * from './Section';
-export * from './BurgerMenuButton';

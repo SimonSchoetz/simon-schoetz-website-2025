@@ -14,9 +14,12 @@ export const DesktopNav: FCProps<NavProps> = ({
           <Button
             config='container'
             className={`flex container-center gap-2 ${
-              activeId === id ? 'hover:cursor-default' : 'hover:underline'
+              activeId === id ? 'hover:!cursor-default' : 'hover:underline'
             }`}
             onClick={() => handleClick(id)}
+            disabled={activeId === id}
+            aria-current={activeId === id ? 'page' : undefined}
+            aria-label={`Navigate to ${label}`}
           >
             {label}
             {activeId !== id && <Icon iconName='navArrow' />}

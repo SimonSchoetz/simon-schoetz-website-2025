@@ -73,7 +73,7 @@ export const Button: FCProps<Props> = ({
 };
 
 const ContainerButton: FCProps<ContainerButtonProps> = ({
-  className,
+  className = '',
   children,
   ...props
 }) => {
@@ -88,7 +88,7 @@ const DefaultButton: FCProps<DefaultButtonProps> = ({
   label,
   icon,
   flipIcon,
-  className,
+  className = '',
   ...props
 }) => {
   return (
@@ -110,7 +110,7 @@ const DefaultButton: FCProps<DefaultButtonProps> = ({
 
 const IconButton: FCProps<IconButtonProps> = ({
   iconName,
-  className,
+  className = '',
   flipIcon,
   ...props
 }) => {
@@ -129,7 +129,7 @@ const HeaderButton: FCProps<HeaderButtonProps> = ({
   subLabel,
   icon,
   flipIcon,
-  className,
+  className = '',
   ...props
 }) => {
   return (

@@ -16,7 +16,6 @@ export const CloseX: FCProps<HtmlProps<'svg'>> = ({ className, ...props }) => {
         y1='1'
         x2='9'
         y2='8.93934'
-        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
       />
@@ -25,7 +24,6 @@ export const CloseX: FCProps<HtmlProps<'svg'>> = ({ className, ...props }) => {
         y1='8.93934'
         x2='8.93934'
         y2='1'
-        stroke='currentColor'
         strokeWidth='1.5'
         strokeLinecap='round'
       />

@@ -2,7 +2,7 @@ import { FCProps, HtmlProps } from '@/types';
 import { Button } from './Button';
 
 export const BurgerMenuButton: FCProps<HtmlProps<'button'>> = ({
-  className,
+  className = '',
   ...props
 }) => {
   const sharedStyles =
