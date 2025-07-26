@@ -13,6 +13,7 @@ type Props = object;
 export const HeroCandy: FCProps<Props> = ({ ...props }) => {
   return (
     <div
+      aria-hidden
       className='absolute h-dvh w-dvw content-width top-0 blur-[5rem] overflow-hidden'
       {...props}
     >

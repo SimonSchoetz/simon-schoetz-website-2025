@@ -6,6 +6,7 @@ export * from './ExpandableCard';
 export * from './ExpandableCardItem';
 export * from './ExpandableChip';
 export * from './FlipCard';
+export * from './footer-candy/FooterCandy';
 export * from './Headings';
 export * from './hero-candy/HeroCandy';
 export * from './Icon';
