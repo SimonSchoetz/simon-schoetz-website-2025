@@ -1,4 +1,4 @@
-import { FCProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 import {
   VectorBlue,
   VectorGreen,
@@ -8,13 +8,14 @@ import {
   VectorYellow,
 } from './vectors';
 
-type Props = object;
-
-export const HeroCandy: FCProps<Props> = ({ ...props }) => {
+export const HeroCandy: FCProps<HtmlProps<'div'>> = ({
+  className,
+  ...props
+}) => {
   return (
     <div
-      aria-hidden
-      className='absolute h-dvh w-dvw content-width top-0 blur-[5rem] overflow-hidden'
+      aria-hidden='true'
+      className={`absolute h-dvh w-dvw content-width top-0 blur-[5rem] overflow-hidden ${className}`}
       {...props}
     >
       <VectorGreen className='absolute right-0' />
