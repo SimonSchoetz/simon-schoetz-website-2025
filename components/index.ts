@@ -7,7 +7,7 @@ export * from './ExpandableCardItem';
 export * from './ExpandableChip';
 export * from './FlipCard';
 export * from './Headings';
-export * from './HeroCandy';
+export * from './hero-candy/HeroCandy';
 export * from './Icon';
 export * from './navigation/Navigation';
 export * from './RouterItem';
