@@ -59,18 +59,23 @@ body {
   font-family: var(--font-geist-mono), Arial, Helvetica, sans-serif;
   font-size: var(--fs-base);
 }
+
 html {
   scroll-behavior: smooth;
 }
 /* utility classes */
 
-/* Breakpoints — md: 768 px | lg: 1024 px | xl: 1280 px */
 @layer utilities {
   .container-center {
     @apply flex items-center justify-center;
   }
+
   .section-padding {
     @apply px-4 lg:px-8 xl:px-16;
+  }
+
+  .content-width {
+    @apply w-[1440px];
   }
 }
 /* animation classes */
