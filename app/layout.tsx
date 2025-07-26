@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { geistMono, geistSans, thunderFont } from '@/_fonts';
 
-import { Footer, Header } from './_components';
+import { Footer, Header } from './_sections';
 
 export const metadata: Metadata = {
   title: 'Simon Schötz',

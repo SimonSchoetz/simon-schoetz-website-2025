@@ -5,7 +5,7 @@ import {
   CareerPathsSection,
   ProjectsSection,
   ContactSection,
-} from './_components';
+} from './_sections';
 
 const MainPage: NextPage = () => {
   return (
