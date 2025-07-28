@@ -11,45 +11,44 @@ import {
   VectorYellow,
 } from './vectors';
 
-const duration = 20;
+const duration = 3;
 
 const pinkConfig: AnimationConfig = {
   duration,
   xRange: 3,
   yRange: 1,
-  scaleRange: 0.2,
-  delay: 0,
+  scaleRange: 0.5,
+  opacityRange: 0.5,
 };
 
 const blueConfig: AnimationConfig = {
   duration,
   xRange: 0,
-  yRange: 10,
-  scaleRange: 1,
-  delay: 0,
+  yRange: 2,
+  scaleRange: 0.8,
+  rotationRange: -180,
 };
 
 const purpleConfig: AnimationConfig = {
-  duration,
+  duration: duration * 2,
   xRange: 22,
-  yRange: 10,
-  scaleRange: 1.5,
-  delay: 0,
+  yRange: 5,
+  scaleRange: 0.5,
+  rotationRange: 180,
 };
 
 const greenConfig: AnimationConfig = {
-  duration,
-  xRange: 15,
-  yRange: 0.1,
+  duration: duration * 3,
+  xRange: 50,
+  yRange: 1,
   scaleRange: 0.2,
   delay: 1000,
-  opacityRange: 0.9,
+  opacityRange: 0.1,
 };
 
 const yellowConfig: AnimationConfig = {
   duration: duration * 2,
-  xRange: 0,
-  yRange: 0,
+  // opacityRange: 0.5,
   scaleRange: 1.5,
   delay: 1000,
 };
@@ -57,9 +56,11 @@ const yellowConfig: AnimationConfig = {
 const orangeConfig: AnimationConfig = {
   duration: duration * 2,
   xRange: -25,
+  opacityRange: 0.5,
   yRange: 3,
   scaleRange: 1,
   delay: 1200,
+  rotationRange: 400,
 };
 
 export const HeroCandy: FCProps<HtmlProps<'div'>> = ({
@@ -69,9 +70,13 @@ export const HeroCandy: FCProps<HtmlProps<'div'>> = ({
   return (
     <div
       aria-hidden='true'
-      className={`absolute h-dvh w-dvw content-width top-0 blur-[5rem] overflow-hidden ${className}`}
+      className={`absolute -z-10 h-dvh w-dvw content-width top-0 blur-[5rem] overflow-hidden ${className}`}
       {...props}
     >
+      <VectorGreen
+        className='absolute right-200'
+        animationConfig={greenConfig}
+      />
       <VectorOrange
         className='absolute right-70'
         animationConfig={orangeConfig}
@@ -79,10 +84,6 @@ export const HeroCandy: FCProps<HtmlProps<'div'>> = ({
       <VectorYellow
         className='absolute right-100'
         animationConfig={yellowConfig}
-      />
-      <VectorGreen
-        className='absolute right-200'
-        animationConfig={greenConfig}
       />
       <VectorPurple
         className='absolute right-0'

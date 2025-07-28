@@ -1,17 +1,27 @@
 import { CSSProperties, useEffect, useState } from 'react';
 
 export type AnimationConfig = {
-  duration: number;
+  /**
+   * seconds
+   */
+  duration?: number;
   /**
    * rem
    */
-  xRange: number;
+  xRange?: number;
   /**
    * rem
    */
-  yRange: number;
-  scaleRange: number;
+  yRange?: number;
+
+  scaleRange?: number;
+  /**
+   * degrees
+   */
   rotationRange?: number;
+  /**
+   * 0-1
+   */
   opacityRange?: number;
   /**
    * ms
@@ -19,48 +29,35 @@ export type AnimationConfig = {
   delay?: number;
 };
 
-export const useFloatingAnimation = (
-  config: AnimationConfig
-): CSSProperties => {
-  const [style, setStyle] = useState({});
+export const useFloatingAnimation = ({
+  duration = 0,
+  delay = 0,
+  xRange = 0,
+  yRange = 0,
+  scaleRange = 0,
+  rotationRange = 0,
+  opacityRange = 0,
+}: AnimationConfig): CSSProperties => {
+  const [isAtMax, setIsAtMax] = useState(false);
+
+  const transitionDuration = duration * 1000;
 
   useEffect(() => {
-    const animate = () => {
-      const startTime = Date.now() + (config.delay || 0);
+    const interval = setInterval(() => {
+      setIsAtMax((prev) => !prev);
+    }, transitionDuration);
 
-      const durationInSecs = config.duration * 1000;
+    return () => clearInterval(interval);
+  }, [transitionDuration]);
 
-      const updateStyle = () => {
-        const elapsed = Date.now() - startTime;
-        const progress = (elapsed % durationInSecs) / durationInSecs;
+  const transformMax = `translate(${xRange}rem, ${yRange}rem) scale(${
+    1 + scaleRange
+  }) rotate(${rotationRange}deg)`;
+  const transformDefault = `translate(0rem, 0rem) scale(1) rotate(0deg)`;
 
-        // Calculate all animation values
-        const x = Math.sin(progress * Math.PI * 2) * config.xRange;
-        const y = Math.cos(progress * Math.PI * 2) * config.yRange;
-        const scale = 1 + Math.sin(progress * Math.PI * 4) * config.scaleRange;
-        const rotation = config.rotationRange
-          ? Math.sin(progress * Math.PI * 3) * config.rotationRange
-          : 0;
-        const opacity = config.opacityRange
-          ? 1 + Math.sin(progress * Math.PI * 2) * config.opacityRange
-          : 1;
-
-        // Build complete style object
-        const newStyle = {
-          transform: `translate(${x}rem, ${y}rem) scale(${scale}) rotate(${rotation}deg)`,
-          opacity,
-          transition: 'transform 0.1s ease-out',
-        };
-
-        setStyle(newStyle);
-        requestAnimationFrame(updateStyle);
-      };
-
-      requestAnimationFrame(updateStyle);
-    };
-
-    animate();
-  }, [config]);
-
-  return style;
+  return {
+    transform: isAtMax ? transformMax : transformDefault,
+    opacity: isAtMax ? 1 - opacityRange : 1,
+    transition: `all ${transitionDuration}ms ease-in-out ${delay}ms`,
+  } satisfies CSSProperties;
 };
