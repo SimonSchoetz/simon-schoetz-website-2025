@@ -34,7 +34,7 @@ export const FooterCandy: FCProps<HtmlProps<'div'>> = ({
       {...props}
     >
       <VectorPink
-        className='absolute bottom-0 left-0  max-md:scale-75 max-md:bottom-[-1rem]  max-md:left-[-15rem]'
+        className='absolute bottom-0 left-0 max-md:scale-75 max-md:bottom-[-1rem] max-md:left-[-15rem]'
         animationConfig={pinkConfig}
       />
       <VectorPurple
