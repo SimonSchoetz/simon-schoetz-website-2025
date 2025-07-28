@@ -1,8 +1,20 @@
+import { AnimationConfig, useFloatingAnimation } from '@/hooks';
 import { FCProps, HtmlProps } from '@/types';
 
-export const VectorPink: FCProps<HtmlProps<'svg'>> = ({ ...props }) => {
+type Props = HtmlProps<'svg'> & { animationConfig: AnimationConfig };
+
+export const VectorPink: FCProps<Props> = ({ animationConfig, ...props }) => {
+  const styles = useFloatingAnimation(animationConfig);
+
   return (
-    <svg width='840' height='757' viewBox='0 0 840 757' fill='none' {...props}>
+    <svg
+      width='840'
+      height='757'
+      viewBox='0 0 840 757'
+      fill='none'
+      style={styles}
+      {...props}
+    >
       <path
         fillRule='evenodd'
         clipRule='evenodd'
