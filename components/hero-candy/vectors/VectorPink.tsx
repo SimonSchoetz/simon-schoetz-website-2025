@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimationConfig, useFloatingAnimation } from '@/hooks';
 import { FCProps, HtmlProps } from '@/types';
 
