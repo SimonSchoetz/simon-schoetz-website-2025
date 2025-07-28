@@ -82,7 +82,6 @@ export const useFloatingAnimation = ({
   }, [animationId, keyframes]);
 
   return {
-    animation: `${animationId} ${duration}s ease-in-out infinite`,
-    animationDelay: `${delay}ms`,
+    animation: `${animationId} ${duration}s ease-in-out infinite ${delay}ms`,
   } satisfies CSSProperties;
 };
