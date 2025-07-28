@@ -1,5 +1,3 @@
-'use client';
-
 import { AnimationConfig } from '@/hooks';
 import { FCProps, HtmlProps } from '@/types';
 import {
@@ -11,9 +9,10 @@ import {
   VectorYellow,
 } from './vectors';
 
-const duration = 3;
+const duration = 10;
 
 const pinkConfig: AnimationConfig = {
+  id: 'pink',
   duration,
   xRange: 3,
   yRange: 1,
@@ -22,6 +21,7 @@ const pinkConfig: AnimationConfig = {
 };
 
 const blueConfig: AnimationConfig = {
+  id: 'blue',
   duration,
   xRange: 0,
   yRange: 2,
@@ -30,6 +30,7 @@ const blueConfig: AnimationConfig = {
 };
 
 const purpleConfig: AnimationConfig = {
+  id: 'purple',
   duration: duration * 2,
   xRange: 22,
   yRange: 5,
@@ -38,22 +39,25 @@ const purpleConfig: AnimationConfig = {
 };
 
 const greenConfig: AnimationConfig = {
+  id: 'green',
   duration: duration * 3,
-  xRange: 50,
-  yRange: 1,
+  xRange: 40,
+  yRange: -5,
   scaleRange: 0.2,
   delay: 1000,
   opacityRange: 0.1,
 };
 
 const yellowConfig: AnimationConfig = {
+  id: 'yellow',
   duration: duration * 2,
-  // opacityRange: 0.5,
+  opacityRange: 0.2,
   scaleRange: 1.5,
   delay: 1000,
 };
 
 const orangeConfig: AnimationConfig = {
+  id: 'orange',
   duration: duration * 2,
   xRange: -25,
   opacityRange: 0.5,
@@ -64,7 +68,7 @@ const orangeConfig: AnimationConfig = {
 };
 
 export const HeroCandy: FCProps<HtmlProps<'div'>> = ({
-  className,
+  className = '',
   ...props
 }) => {
   return (
