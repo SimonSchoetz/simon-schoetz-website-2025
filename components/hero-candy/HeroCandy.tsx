@@ -12,7 +12,7 @@ import {
 const duration = 10;
 
 const pinkConfig: AnimationConfig = {
-  id: 'pink',
+  id: 'header-pink',
   duration,
   xRange: 3,
   yRange: 1,
@@ -21,7 +21,7 @@ const pinkConfig: AnimationConfig = {
 };
 
 const blueConfig: AnimationConfig = {
-  id: 'blue',
+  id: 'header-blue',
   duration,
   xRange: 0,
   yRange: 2,
@@ -30,7 +30,7 @@ const blueConfig: AnimationConfig = {
 };
 
 const purpleConfig: AnimationConfig = {
-  id: 'purple',
+  id: 'header-purple',
   duration: duration * 2,
   xRange: 22,
   yRange: 5,
@@ -39,7 +39,7 @@ const purpleConfig: AnimationConfig = {
 };
 
 const greenConfig: AnimationConfig = {
-  id: 'green',
+  id: 'header-green',
   duration: duration * 3,
   xRange: 40,
   yRange: -5,
@@ -49,7 +49,7 @@ const greenConfig: AnimationConfig = {
 };
 
 const yellowConfig: AnimationConfig = {
-  id: 'yellow',
+  id: 'header-yellow',
   duration: duration * 2,
   opacityRange: 0.2,
   scaleRange: 1.5,
@@ -57,7 +57,7 @@ const yellowConfig: AnimationConfig = {
 };
 
 const orangeConfig: AnimationConfig = {
-  id: 'orange',
+  id: 'header-orange',
   duration: duration * 2,
   xRange: -25,
   opacityRange: 0.5,
