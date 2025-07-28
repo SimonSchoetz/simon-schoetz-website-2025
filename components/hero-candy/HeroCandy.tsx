@@ -78,26 +78,29 @@ export const HeroCandy: FCProps<HtmlProps<'div'>> = ({
       {...props}
     >
       <VectorGreen
-        className='absolute right-200'
+        className='absolute right-200 max-md:right-0 max-md:scale-50'
         animationConfig={greenConfig}
       />
       <VectorOrange
-        className='absolute right-70'
+        className='absolute right-70 max-md:right-0'
         animationConfig={orangeConfig}
       />
       <VectorYellow
-        className='absolute right-100'
+        className='absolute right-100 max-md:right-0'
         animationConfig={yellowConfig}
       />
       <VectorPurple
-        className='absolute right-0'
+        className='absolute right-0  max-md:scale-50 max-md:bottom-100'
         animationConfig={purpleConfig}
       />
       <VectorBlue
-        className='absolute right-0 top-20'
+        className='absolute right-0 top-20 max-md:scale-50'
         animationConfig={blueConfig}
       />
-      <VectorPink className='absolute right-0' animationConfig={pinkConfig} />
+      <VectorPink
+        className='absolute right-0 max-md:scale-50 max-md:bottom-100 max-md:right-10'
+        animationConfig={pinkConfig}
+      />
     </div>
   );
 };
