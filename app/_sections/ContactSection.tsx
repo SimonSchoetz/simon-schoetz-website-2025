@@ -4,8 +4,8 @@ import Link from 'next/link';
 
 const contactChips = [
   {
-    label: 'simon@simonschoetz.com',
-    link: 'mailto:simon@simonschoetz.com',
+    label: 'simonsch.tz@gmail.com',
+    link: 'mailto:simonsch.tz@gmail.com',
   },
   {
     label: 'LinkedIn',
