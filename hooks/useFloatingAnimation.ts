@@ -1,4 +1,6 @@
-import { CSSProperties } from 'react';
+'use client';
+
+import { CSSProperties, useEffect, useMemo } from 'react';
 
 export type AnimationConfig = {
   /**
@@ -17,7 +19,6 @@ export type AnimationConfig = {
    * rem
    */
   yRange?: number;
-
   scaleRange?: number;
   /**
    * degrees
@@ -43,28 +44,42 @@ export const useFloatingAnimation = ({
   rotationRange = 0,
   opacityRange = 0,
 }: AnimationConfig): CSSProperties => {
-  const animationId = `float-${id}`;
+  const animationId = useMemo(() => `float-${id}`, [id]);
 
-  // Generate CSS keyframes
-  const keyframes = `
-      @keyframes ${animationId} {
-        0%, 100% {
-          transform: translate(0rem, 0rem) scale(1) rotate(0deg);
-          opacity: 1;
-        }
-        50% {
-          transform: translate(${xRange}rem, ${yRange}rem) scale(${
-    1 + scaleRange
-  }) rotate(${rotationRange}deg);
-          opacity: ${1 - opacityRange};
-        }
+  const keyframes = useMemo(
+    () => `
+    @keyframes ${animationId} {
+      0%, 100% {
+        transform: translate(0rem, 0rem) scale(1) rotate(0deg);
+        opacity: 1;
       }
-    `;
+      50% {
+        transform: translate(${xRange}rem, ${yRange}rem) scale(${
+      1 + scaleRange
+    }) rotate(${rotationRange}deg);
+        opacity: ${1 - opacityRange};
+      }
+    }
+  `,
+    [animationId, xRange, yRange, scaleRange, rotationRange, opacityRange]
+  );
 
-  // Inject CSS into document head
-  const styleElement = document.createElement('style');
-  styleElement.textContent = keyframes;
-  document.head.appendChild(styleElement);
+  useEffect(() => {
+    const existingStyle = document.getElementById(animationId);
+    if (existingStyle) return;
+
+    const styleElement = document.createElement('style');
+    styleElement.id = animationId;
+    styleElement.textContent = keyframes;
+    document.head.appendChild(styleElement);
+
+    return () => {
+      const element = document.getElementById(animationId);
+      if (element) {
+        element.remove();
+      }
+    };
+  }, [animationId, keyframes]);
 
   return {
     animation: `${animationId} ${duration}s ease-in-out infinite`,
