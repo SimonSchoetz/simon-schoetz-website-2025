@@ -4,7 +4,6 @@ import { FCProps, HtmlProps } from '@/types';
 import { useState } from 'react';
 import { Button } from './button/Button';
 import { Icon } from './Icon';
-import { H4 } from './Headings';
 
 type Props = HtmlProps<'button'> & {
   cover: string;
@@ -42,7 +41,7 @@ export const FlipCard: FCProps<Props> = ({
             : ''
         } absolute container-center w-full h-full`}
       >
-        <H4 text={cover} className='text-5xl font-thunder font-light' />
+        <span className='text-5xl font-thunder font-light'>{cover}</span>
         <Icon
           iconName='arrowInCircle'
           className={`${sharedIconStyles} absolute bottom-8 right-8 `}
