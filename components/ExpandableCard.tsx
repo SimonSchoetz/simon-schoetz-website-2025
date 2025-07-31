@@ -2,25 +2,27 @@
 
 import { FCProps } from '@/types';
 import { useState } from 'react';
-import { Button } from './Button';
+import { Button } from './button/Button';
 import { H3 } from './Headings';
 import { Chip } from './Chip';
 import { ExpandableDiv } from './ExpandableDiv';
 
-type Props = {
+export type CardContent = {
   title: string;
   subheading: string;
   fixedContent: React.ReactNode;
   expandableContent: React.ReactNode;
-  techStack: string[];
+  chips: string[];
+  colorVar?: string;
 };
 
-export const ExpandableCard: FCProps<Props> = ({
-  fixedContent,
-  expandableContent,
+export const ExpandableCard: FCProps<CardContent> = ({
   title,
   subheading,
-  techStack,
+  fixedContent,
+  expandableContent,
+  chips,
+  colorVar,
   ...props
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -45,18 +47,19 @@ export const ExpandableCard: FCProps<Props> = ({
       </ExpandableDiv>
 
       <div className='flex flex-wrap gap-4 mb-10'>
-        {techStack.map((tech) => (
+        {chips.map((tech) => (
           <Chip key={tech} label={tech} />
         ))}
       </div>
 
       <Button
-        className='w-full lg:w-fit'
+        className={`w-full lg:w-fit`}
         config='default'
         label={isExpanded ? 'Show less' : 'Show more'}
         onClick={() => setIsExpanded(!isExpanded)}
         icon='upInCircle'
         flipIcon={isExpanded}
+        colorVar={colorVar}
       />
     </div>
   );
