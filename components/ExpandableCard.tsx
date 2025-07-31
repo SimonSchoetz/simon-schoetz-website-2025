@@ -33,7 +33,9 @@ export const ExpandableCard: FCProps<CardContent> = ({
         className='flex flex-col gap-6 justify-between p-8
           lg:flex-row lg:p-14 lg:items-center'
         style={{
-          background: `linear-gradient(to bottom, color-mix(in srgb, ${colorVar} 56%, transparent) 10%, transparent 80%)`,
+          background: colorVar
+            ? `linear-gradient(to bottom, color-mix(in srgb, ${colorVar} 56%, transparent) 10%, transparent 80%)`
+            : 'transparent',
         }}
       >
         <H3 text={title} className='text-4xl' />

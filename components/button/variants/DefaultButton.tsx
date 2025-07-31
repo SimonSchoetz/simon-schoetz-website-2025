@@ -30,9 +30,9 @@ export const DefaultButton: FCProps<DefaultButtonProps> = ({
       aria-label={props['aria-label'] ?? label}
       className={`${baseStyles} ${className} test-hover`}
       style={{
-        background: hovered ? 'var(--bg)' : colorVar,
-        borderColor: colorVar,
-        color: hovered ? colorVar : 'var(--bg)',
+        background: hovered ? 'var(--bg)' : colorVar ?? 'var(--fg)',
+        borderColor: colorVar ?? 'var(--fg)',
+        color: hovered ? colorVar ?? 'var(--fg)' : 'var(--bg)',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
