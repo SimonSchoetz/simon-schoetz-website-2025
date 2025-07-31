@@ -6,49 +6,39 @@ import {
   DefaultButtonProps,
   HeaderButton,
   HeaderButtonProps,
-  IconButton,
-  IconButtonProps,
 } from './variants';
 
-type Props =
-  | DefaultButtonProps
-  | IconButtonProps
-  | HeaderButtonProps
-  | ContainerButtonProps;
+type Props = DefaultButtonProps | HeaderButtonProps | ContainerButtonProps;
 
 export const Button: FCProps<Props> = ({
-  config = 'default',
+  config,
   className = '',
   ...props
 }) => {
   const sharedStyles = 'hover:cursor-pointer';
+  const combinedClassName = `${sharedStyles} ${className}`;
 
-  return (
-    <>
-      {config === 'default' && (
-        <DefaultButton
-          {...(props as DefaultButtonProps)}
-          className={`${sharedStyles} ${className}`}
-        />
-      )}
-      {config === 'icon' && (
-        <IconButton
-          {...(props as IconButtonProps)}
-          className={`${sharedStyles} ${className}`}
-        />
-      )}
-      {config === 'header' && (
+  switch (config || 'default') {
+    case 'header':
+      return (
         <HeaderButton
           {...(props as HeaderButtonProps)}
-          className={`${sharedStyles} ${className}`}
+          className={combinedClassName}
         />
-      )}
-      {config === 'container' && (
+      );
+    case 'container':
+      return (
         <ContainerButton
           {...(props as ContainerButtonProps)}
-          className={`${sharedStyles} ${className}`}
+          className={combinedClassName}
         />
-      )}
-    </>
-  );
+      );
+    default:
+      return (
+        <DefaultButton
+          {...(props as DefaultButtonProps)}
+          className={combinedClassName}
+        />
+      );
+  }
 };
