@@ -1,4 +1,4 @@
-import { Section, H2, FlipCard } from '@/components';
+import { Section, H2, FlipCard, H3 } from '@/components';
 import { FCProps, HtmlProps } from '@/types';
 
 export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
@@ -11,7 +11,13 @@ export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
       id='principles'
       className={`section-padding ${className}`}
     >
-      <H2 text='Principles' className='mb-4' />
+      <div className='flex justify-between mb-10 max-lg:flex-col'>
+        <H2 text='Principles' />
+        <H3
+          text='The foundation of my work ethics'
+          className='!font-mono text-sm max-w-full lg:max-w-64 lg:text-lg'
+        />
+      </div>
 
       <ul className='grid md:grid-cols-2 gap-8 lg:grid-cols-3'>
         {principles.map(({ cover, content }) => (
