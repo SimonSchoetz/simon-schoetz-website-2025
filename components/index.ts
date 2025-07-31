@@ -13,3 +13,4 @@ export * from './Icon';
 export * from './navigation/Navigation';
 export * from './RouterItem';
 export * from './Section';
+export * from './SectionHeader';
