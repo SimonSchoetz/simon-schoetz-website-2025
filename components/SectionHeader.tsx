@@ -20,7 +20,7 @@ export const SectionHeader: FCProps<Props> = ({
       <H2 text={heading} />
       <H3
         text={subheading}
-        className='!font-mono text-sm max-w-full lg:max-w-64 lg:text-lg'
+        className='!font-mono text-sm max-w-full lg:max-w-64 text-right lg:text-lg'
       />
     </div>
   );
