@@ -1,5 +1,5 @@
 import { HtmlProps } from '@/types';
-import { Button } from './Button';
+import { Button } from './button/Button';
 import { forwardRef } from 'react';
 
 const sharedStyles =

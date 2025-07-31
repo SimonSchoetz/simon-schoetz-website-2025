@@ -1,5 +1,5 @@
 export * from './BurgerMenuButton';
-export * from './Button';
+export * from './button/Button';
 export * from './Chip';
 export * from './ExpandableDiv';
 export * from './ExpandableCard';

@@ -2,7 +2,7 @@
 
 import { FCProps, HtmlProps } from '@/types';
 import { useState } from 'react';
-import { Button } from './Button';
+import { Button } from './button/Button';
 import { Icon } from './Icon';
 import { H4 } from './Headings';
 

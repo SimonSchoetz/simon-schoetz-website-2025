@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { FCProps, HtmlProps } from '@/types';
-import { Button } from './Button';
+import { Button } from './button/Button';
 import { ExpandableDiv } from './ExpandableDiv';
 
 type Props = HtmlProps<'div'> & {
