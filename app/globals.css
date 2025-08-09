@@ -7,9 +7,15 @@
   --fg-2: #8b8b8b;
   --fg-3: #7d7d7d;
   --fg-4: #494949;
+
   --project-1: #408813;
   --project-2: #73a20b;
   --project-3: #a1b803;
+
+  --career-path-1: #3f8814;
+  --career-path-2: #b69211;
+  --career-path-3: #6a63ea;
+
   --fs-base: 1.25rem;
 }
 
@@ -33,9 +39,6 @@
   --color-fg-2: var(--fg-2);
   --color-fg-3: var(--fg-3);
   --color-fg-4: var(--fg-4);
-  --color-project-1: var(--project-1);
-  --color-project-2: var(--project-2);
-  --color-project-3: var(--project-3);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
