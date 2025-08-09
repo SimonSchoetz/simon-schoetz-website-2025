@@ -10,7 +10,6 @@ export type HeaderButtonProps = HtmlProps<'button'> & {
   config: 'header';
   label: string;
   subLabel?: string;
-  isLoading?: boolean;
   icon?: ComponentProps<typeof Icon>['iconName'];
   flipIcon?: boolean;
   colorVar?: string;

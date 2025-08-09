@@ -29,7 +29,7 @@ export const ExpandableChip: FCProps<Props> = ({
   return (
     <div
       {...props}
-      className={`flex flex-col ${borderRadius} border-1 overflow-hidden text-bg stroke-bg ${className}`}
+      className={`flex flex-col ${borderRadius} border-1 text-bg stroke-bg ${className}`}
       style={{
         background: colorVar,
         borderColor: colorVar,
