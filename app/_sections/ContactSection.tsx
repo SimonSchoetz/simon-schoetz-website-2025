@@ -1,6 +1,10 @@
+'use client';
+
 import { Chip, H2, Section } from '@/components';
+import { HoverBlob } from '@/components/button/components';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const contactChips = [
   {
@@ -26,6 +30,8 @@ const contactChips = [
 ];
 
 export const ContactSection = () => {
+  const [hovered, setHovered] = useState(0);
+
   return (
     <Section
       id='contact'
@@ -52,22 +58,42 @@ export const ContactSection = () => {
         className='grid grid-cols-2 gap-4 h-min w-full
             md:justify-end md:flex md:flex-wrap md:max-w-[400px]'
       >
-        {contactChips.map((chip, i) => (
-          <Link
-            href={chip.link}
-            target='_blank'
-            rel='noopener noreferrer'
-            key={chip.label}
-            className={i === 0 ? 'col-span-2' : ''}
-          >
-            <Chip
-              label={chip.label}
-              className='w-full bg-transparent transition-colors hover:bg-bg-2 container-center
+        {contactChips.map((chip, i) => {
+          const index = i + 1;
+          return (
+            <Link
+              href={chip.link}
+              target='_blank'
+              rel='noopener noreferrer'
+              key={chip.label}
+              className={`${
+                index === 0 ? 'col-span-2' : ''
+              } relative group rounded-full overflow-hidden`}
+              onMouseEnter={() => setHovered(index)}
+              onMouseLeave={() => setHovered(0)}
+            >
+              <Chip
+                label={chip.label}
+                className='z-20 w-full  bg-transparent transition-colors container-center hover:text-bg duration-600 ease-in-out 
                 md:w-fit md:py-4 md:px-8
                 lg:py-4 lg:px-8'
-            />
-          </Link>
-        ))}
+                style={{
+                  color:
+                    hovered === index ? 'var(--bg)' : `var(--contact-${index})`,
+                  borderColor:
+                    hovered === index ? `var(--contact-${index})` : '',
+                }}
+              />
+
+              <HoverBlob
+                className='z-[-1]'
+                style={{
+                  background: `var(--contact-${index})`,
+                }}
+              />
+            </Link>
+          );
+        })}
       </div>
     </Section>
   );

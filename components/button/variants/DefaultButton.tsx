@@ -31,7 +31,7 @@ export const DefaultButton: FCProps<DefaultButtonProps> = ({
       aria-label={props['aria-label'] ?? label}
       className={`${baseStyles} ${className}`}
       style={{
-        background: hovered ? 'var(--bg)' : colorVar ?? 'var(--fg)',
+        background: colorVar ?? 'var(--fg)',
         borderColor: hovered ? colorVar ?? 'var(--fg)' : 'transparent',
         color: hovered ? colorVar ?? 'var(--fg)' : 'var(--bg)',
       }}

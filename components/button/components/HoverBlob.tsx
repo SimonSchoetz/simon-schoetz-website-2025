@@ -8,7 +8,7 @@ export const HoverBlob: FCProps<HtmlProps<'div'>> = ({
   const baseStyles =
     'z-0 bg-bg w-full h-auto aspect-square rounded-full absolute transition-all duration-600 ease-in-out';
   const transitionStart = 'scale-0';
-  const transitionEnd = 'group-hover:scale-200';
+  const transitionEnd = 'group-hover:scale-105';
   return (
     <div
       {...props}
