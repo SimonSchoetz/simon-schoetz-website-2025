@@ -11,13 +11,14 @@ export const CareerPathsSection: FCProps<HtmlProps<'section'>> = ({
       className='flex flex-col gap-10 section-padding'
     >
       <H2 text='Career Paths' />
-      {careerPaths.map((careerPath) => (
+      {careerPaths.map((careerPath, i) => (
         <article key={careerPath.title}>
           <ExpandableChip
             title={careerPath.title}
             subTitle={careerPath.subTitle}
             contentContainerClassName='flex flex-col gap-6'
             expandableContent={careerPath.expandableContent}
+            colorVar={`var(--career-path-${i + 1})`}
           />
         </article>
       ))}

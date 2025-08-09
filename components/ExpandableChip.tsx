@@ -10,6 +10,7 @@ type Props = HtmlProps<'div'> & {
   subTitle: string;
   expandableContent: React.ReactNode;
   contentContainerClassName?: string;
+  colorVar?: string;
 };
 
 export const ExpandableChip: FCProps<Props> = ({
@@ -18,14 +19,21 @@ export const ExpandableChip: FCProps<Props> = ({
   expandableContent,
   className,
   contentContainerClassName,
+  colorVar,
   ...props
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const borderRadius = 'rounded-[2.5rem] lg:rounded-[3.5rem]';
+
   return (
     <div
       {...props}
-      className={`flex flex-col rounded-[3.5rem] text-bg stroke-bg bg-fg ${className}`}
+      className={`flex flex-col ${borderRadius} border-1 overflow-hidden text-bg stroke-bg ${className}`}
+      style={{
+        background: colorVar,
+        borderColor: colorVar,
+      }}
     >
       <Button
         config='header'
@@ -34,7 +42,8 @@ export const ExpandableChip: FCProps<Props> = ({
         onClick={() => setIsExpanded(!isExpanded)}
         icon='upInCircle'
         flipIcon={isExpanded}
-        className='p-6 lg:p-8 rounded-[3.5rem]'
+        className={`p-6 lg:p-8 ${borderRadius}`}
+        colorVar={colorVar}
       />
 
       <ExpandableDiv
