@@ -32,7 +32,6 @@ export const ExpandableChip: FCProps<Props> = ({
       className={`flex flex-col ${borderRadius} border-1 text-bg stroke-bg ${className}`}
       style={{
         background: colorVar,
-        borderColor: colorVar,
       }}
     >
       <Button

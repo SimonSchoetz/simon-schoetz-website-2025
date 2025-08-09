@@ -68,9 +68,11 @@ export const ContactSection = () => {
               key={chip.label}
               className={`${
                 index === 0 ? 'col-span-2' : ''
-              } relative group rounded-full overflow-hidden`}
+              } relative group rounded-full z-20 hover:z-10 backdrop-blur-sm`}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(0)}
+              onFocus={() => setHovered(index)}
+              onBlur={() => setHovered(0)}
             >
               <Chip
                 label={chip.label}
@@ -90,6 +92,7 @@ export const ContactSection = () => {
                 style={{
                   background: `var(--contact-${index})`,
                 }}
+                hovered={hovered === index}
               />
             </Link>
           );

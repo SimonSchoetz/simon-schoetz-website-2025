@@ -37,9 +37,11 @@ export const DefaultButton: FCProps<DefaultButtonProps> = ({
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
       {...props}
     >
-      <HoverBlob />
+      <HoverBlob hovered={hovered} />
 
       <span className='container-center gap-4 relative z-20'>
         {label}
@@ -48,7 +50,7 @@ export const DefaultButton: FCProps<DefaultButtonProps> = ({
             iconName={icon}
             className={`${
               flipIcon ? '' : 'rotate-x-180'
-            } transition-transform duration-600 group-hover:scale-110`}
+            } duration-600 group-hover:scale-110`}
           />
         )}
       </span>
