@@ -39,7 +39,7 @@ export const ContactSection = () => {
         max-md:flex-col max-md:container-center
         lg:py-32'
     >
-      <div className='mb-6 md:mb-0 md:flex-1 w-full'>
+      <div className='mb-6 md:mb-0 md:flex-1 w-full z-30'>
         <Image
           className='object-cover float-left mr-4'
           src='/contact-avatar.webp'
@@ -67,12 +67,10 @@ export const ContactSection = () => {
               rel='noopener noreferrer'
               key={chip.label}
               className={`${
-                index === 0 ? 'col-span-2' : ''
+                i === 0 ? 'col-span-2' : ''
               } relative group rounded-full z-20 hover:z-10 backdrop-blur-sm`}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(0)}
-              onFocus={() => setHovered(index)}
-              onBlur={() => setHovered(0)}
             >
               <Chip
                 label={chip.label}
