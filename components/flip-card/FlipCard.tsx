@@ -59,16 +59,16 @@ export const FlipCard: FCProps<Props> = ({
           flipDuration={flipDuration}
         />
 
-        <FrontSideGradient
-          colorVar={colorVar}
-          isHovered={isHovered}
-          hoverDuration={hoverDuration}
-        />
-
         <CoverTitleArtifacts
           cover={cover}
           isHovered={isHovered}
           colorVar={colorVar}
+          hoverDuration={hoverDuration}
+        />
+
+        <FrontSideGradient
+          colorVar={colorVar}
+          isHovered={isHovered}
           hoverDuration={hoverDuration}
         />
 
