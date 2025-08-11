@@ -17,9 +17,13 @@ export const PrinciplesSection: FCProps<HtmlProps<'section'>> = ({
       />
 
       <ul className='grid md:grid-cols-2 gap-8 lg:grid-cols-3'>
-        {principles.map(({ cover, content }) => (
+        {principles.map(({ cover, content }, i) => (
           <li key={cover}>
-            <FlipCard cover={cover} content={content} />
+            <FlipCard
+              cover={cover}
+              content={content}
+              colorVar={`var(--principles-${i + 1})`}
+            />
           </li>
         ))}
       </ul>
