@@ -5,7 +5,7 @@ type Props = HtmlProps<'div'> & {
   cover: string;
   isHovered: boolean;
   colorVar: string;
-  hoverDuration: number;
+  hoverDuration: string;
 };
 
 export const CoverTitleArtifacts: FCProps<Props> = ({
@@ -13,6 +13,7 @@ export const CoverTitleArtifacts: FCProps<Props> = ({
   isHovered,
   colorVar,
   hoverDuration,
+  className = '',
 }) => {
   const [mousePosition, setMousePosition] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -41,7 +42,7 @@ export const CoverTitleArtifacts: FCProps<Props> = ({
     <div
       aria-hidden='true'
       ref={containerRef}
-      className='z-10 text-5xl w-full h-full absolute font-thunder font-light'
+      className={`z-10 text-5xl w-full h-full absolute font-thunder font-light ${className}`}
     >
       {Array.from({ length: 2 }, (_, index) => {
         const factor = index + 0;
@@ -55,14 +56,14 @@ export const CoverTitleArtifacts: FCProps<Props> = ({
         return (
           <span
             key={index}
-            className={`absolute left-0 top-1/2 -translate-y-1/2 ${transitionBehavior} duration-${hoverDuration} w-full text-center`}
+            className={`absolute left-0 top-1/2 -translate-y-1/2 ${transitionBehavior} ${hoverDuration} w-full text-center`}
             style={{
               color: colorVar,
               transform: `scale(${1 + factor * 11}) translate(${
                 cursorOffsetX / factor
               }px )`,
               opacity: isHovered ? 1 - factor * 0.4 : 0,
-              filter: `blur(${factor * (factor / 2)}px)`,
+              // filter: `blur(${factor * (factor / 2)}px)`,
               zIndex: -factor,
             }}
           >

@@ -16,8 +16,8 @@ type Props = HtmlProps<'button'> & {
   colorVar: string;
 };
 
-const flipDuration = 1000;
-const hoverDuration = 1000;
+const flipDuration = 'duration-1000';
+const hoverDuration = 'duration-600';
 
 export const FlipCard: FCProps<Props> = ({
   cover,
@@ -33,7 +33,7 @@ export const FlipCard: FCProps<Props> = ({
 
   const boxStyle: string = 'bg-bg-2 rounded-4xl p-8';
 
-  const sharedStyles = `backface-hidden overflow-hidden transition-all duration-${flipDuration} group`;
+  const sharedStyles = `backface-hidden overflow-hidden transition-all ${flipDuration} group`;
   const sharedIconStyles = 'group-hover:stroke-fg transition-all';
 
   return (
@@ -73,9 +73,9 @@ export const FlipCard: FCProps<Props> = ({
         />
 
         <span
-          className={`z-10 text-5xl font-thunder font-light transition-all duration-${hoverDuration}`}
+          className={`z-10 text-5xl font-thunder font-light transition-all ${hoverDuration}`}
           style={{
-            textShadow: `0 ${isHovered ? '-5px' : '0'} 10px ${colorVar}`,
+            textShadow: `0 ${isHovered ? '-2px' : '0'} 5px ${colorVar}`,
             color: isFlipped ? colorVar : 'var(--fg)',
           }}
         >
@@ -109,7 +109,7 @@ export const FlipCard: FCProps<Props> = ({
           className={`${sharedIconStyles} rotate-180`}
         />
         <p
-          className={`pt-8 text-left text-sm lg:text-md transition-all duration-${flipDuration}`}
+          className={`pt-8 text-left text-sm lg:text-md transition-all ${flipDuration}`}
           style={{
             color: !isFlipped ? colorVar : 'var(--fg)',
           }}
