@@ -5,7 +5,7 @@ export * from './ExpandableDiv';
 export * from './ExpandableCard';
 export * from './ExpandableCardItem';
 export * from './ExpandableChip';
-export * from './FlipCard';
+export * from './flip-card/FlipCard';
 export * from './footer-candy/FooterCandy';
 export * from './Headings';
 export * from './hero-candy/HeroCandy';
