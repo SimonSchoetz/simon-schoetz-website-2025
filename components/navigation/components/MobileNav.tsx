@@ -52,6 +52,9 @@ export const MobileNav: FCProps<NavProps> = ({
         className={`absolute top-0 right-0 w-4/5 h-screen bg-bg-2 transition-all ease-in-out duration-350 z-50 ${
           isOpen ? 'translate-y-0' : '-translate-y-full opacity-0'
         }`}
+        style={{
+          background: 'linear-gradient(to bottom, var(--bg-2), var(--bg))',
+        }}
       >
         <div className='h-16 flex items-center justify-end pr-4'>
           <Button
