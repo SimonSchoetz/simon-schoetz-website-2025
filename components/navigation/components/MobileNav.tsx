@@ -1,14 +1,18 @@
 'use client';
 
 import { BurgerMenuButton, Button, Icon } from '@/components';
-import { FCProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 import { useEffect, useState } from 'react';
 import { NavProps } from './nav.type';
 
-export const MobileNav: FCProps<NavProps> = ({
+type Props = HtmlProps<'div'> & NavProps;
+
+export const MobileNav: FCProps<Props> = ({
   navItems,
   activeId,
+  className = '',
   handleClick,
+  ...props
 }) => {
   const currentSection = navItems.find((item) => item.id === activeId);
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +34,7 @@ export const MobileNav: FCProps<NavProps> = ({
   }, [isOpen]);
 
   return (
-    <div className='lg:hidden text-xs sm:text-sm'>
+    <div className={` text-xs sm:text-sm ${className}`} {...props}>
       <div className='h-16 flex items-center justify-between'>
         <p>{currentSection?.label}</p>
 
@@ -38,7 +42,7 @@ export const MobileNav: FCProps<NavProps> = ({
       </div>
 
       <div
-        aria-hidden
+        aria-hidden='true'
         className={`absolute top-0 w-full left-0 h-screen ease-in-out duration-350 bg-black/70 ${
           isOpen ? 'translate-y-0' : '-translate-y-full opacity-0'
         }`}

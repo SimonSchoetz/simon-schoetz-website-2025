@@ -1,7 +1,7 @@
 'use client';
 
 import { FCProps, HtmlProps } from '@/types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavItem, DesktopNav, MobileNav } from './components';
 import { useThrottledScroll } from '@/hooks';
 
@@ -34,6 +34,18 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
 }) => {
   const [activeId, setActiveId] = useState<NavItem['id']>('');
   const [targetId, setTargetId] = useState<NavItem['id']>('');
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const sectionIds = navItems.map((item) => item.id).toReversed();
 
@@ -75,12 +87,18 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
         navItems={navItems}
         activeId={activeId}
         handleClick={handleClick}
+        className='max-lg:hidden'
+        aria-hidden={isMobile}
+        tabIndex={isMobile ? -1 : 0}
       />
 
       <MobileNav
         navItems={navItems}
         activeId={activeId}
         handleClick={handleClick}
+        className='lg:hidden'
+        aria-hidden={!isMobile}
+        tabIndex={!isMobile ? -1 : 0}
       />
     </nav>
   );

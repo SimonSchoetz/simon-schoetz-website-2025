@@ -1,14 +1,21 @@
 import { Button, Icon } from '@/components';
-import { FCProps } from '@/types';
+import { FCProps, HtmlProps } from '@/types';
 import { NavProps } from './nav.type';
 
-export const DesktopNav: FCProps<NavProps> = ({
+type Props = HtmlProps<'ul'> & NavProps;
+
+export const DesktopNav: FCProps<Props> = ({
   navItems,
   activeId,
   handleClick,
+  className = '',
+  ...props
 }) => {
   return (
-    <ul className='flex gap-20 py-6 border-b border-fg-4 text-xs max-lg:hidden'>
+    <ul
+      className={`flex gap-20 py-6 border-b border-fg-4 text-xs ${className}`}
+      {...props}
+    >
       {navItems.map(({ id, label }) => (
         <li key={id}>
           <Button
