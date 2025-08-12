@@ -71,6 +71,9 @@ export const ContactSection = () => {
               } relative group rounded-full z-20 hover:z-10 backdrop-blur-sm`}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(0)}
+              onFocus={() => setHovered(index)}
+              onBlur={() => setHovered(0)}
+              aria-label={`Navigate to ${chip.label}`}
             >
               <Chip
                 label={chip.label}
