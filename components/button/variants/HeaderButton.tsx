@@ -57,14 +57,16 @@ export const HeaderButton: FCProps<HeaderButtonProps> = ({
         </div>
 
         {subLabel && (
-          <span className={`text-base ${textTransition}`}>{subLabel}</span>
+          <span className={`text-base text-left ${textTransition}`}>
+            {subLabel}
+          </span>
         )}
       </div>
 
       {icon && (
         <Icon
           iconName={icon}
-          className={`w-8 h-8 ${
+          className={`w-8 h-8 shrink-0 ml-2 ${
             flipIcon ? '' : 'rotate-x-180'
           } duration-600 group-hover:scale-110`}
         />
