@@ -62,7 +62,6 @@ const careerPaths: {
           work, mainly because I was the only one on the team who didn&apos;t
           mind it. I still don&apos;t have a strong preference today, but since
           I have more experience in this area, I naturally gravitate toward it.
-          more experience in this area, I naturally gravitate toward it.
         </p>
 
         <p>
