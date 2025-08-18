@@ -8,10 +8,6 @@ import { useState } from 'react';
 
 const contactChips = [
   {
-    label: 'simonsch.tz@gmail.com',
-    link: 'mailto:simonsch.tz@gmail.com',
-  },
-  {
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/simonschoetz/',
   },
@@ -66,9 +62,7 @@ export const ContactSection = () => {
               target='_blank'
               rel='noopener noreferrer'
               key={chip.label}
-              className={`${
-                i === 0 ? 'col-span-2' : ''
-              } relative group rounded-full z-20 hover:z-10 backdrop-blur-sm`}
+              className={` relative group rounded-full z-20 hover:z-10 backdrop-blur-sm`}
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(0)}
               onFocus={() => setHovered(index)}
