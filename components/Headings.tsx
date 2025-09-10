@@ -2,13 +2,13 @@ import { FCProps, HtmlProps } from '@/types';
 
 type Props = {
   text: string;
+  font?: 'font-thunder' | 'font-mono';
 };
-
-const font = 'font-thunder';
 
 export const H1: FCProps<HtmlProps<'h1'> & Props> = ({
   text,
   className,
+  font = 'font-thunder',
   ...props
 }) => {
   return (
@@ -24,6 +24,7 @@ export const H1: FCProps<HtmlProps<'h1'> & Props> = ({
 export const H2: FCProps<HtmlProps<'h2'> & Props> = ({
   text,
   className,
+  font = 'font-thunder',
   ...props
 }) => {
   return (
@@ -39,6 +40,7 @@ export const H2: FCProps<HtmlProps<'h2'> & Props> = ({
 export const H3: FCProps<HtmlProps<'h3'> & Props> = ({
   text,
   className,
+  font = 'font-thunder',
   ...props
 }) => {
   return (
@@ -48,7 +50,11 @@ export const H3: FCProps<HtmlProps<'h3'> & Props> = ({
   );
 };
 
-export const H4: FCProps<HtmlProps<'h4'> & Props> = ({ text, ...props }) => {
+export const H4: FCProps<HtmlProps<'h4'> & Props> = ({
+  text,
+  font = 'font-thunder',
+  ...props
+}) => {
   return (
     <h4 {...props} className={`${props.className} ${font}`}>
       {text}
