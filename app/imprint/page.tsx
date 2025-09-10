@@ -24,7 +24,7 @@ const ImprintPage: NextPage = () => {
 
       <H2 text='Dispute resolution' className={h2ClassName} />
       <p>
-        We are not willing or obliged to participate in dispute resolution
+        I am not willing or obliged to participate in dispute resolution
         proceedings before a consumer arbitration board.
       </p>
     </main>

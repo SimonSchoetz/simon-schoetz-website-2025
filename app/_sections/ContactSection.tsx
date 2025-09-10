@@ -8,6 +8,10 @@ import { useState } from 'react';
 
 const contactChips = [
   {
+    label: 'info@simonschoetz.de',
+    link: 'mailto:info@simonschoetz.de',
+  },
+  {
     label: 'LinkedIn',
     link: 'https://www.linkedin.com/in/simonschoetz/',
   },
