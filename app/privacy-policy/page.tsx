@@ -10,10 +10,18 @@ const PrivacyPolicyPage: NextPage = () => {
     <main className='flex flex-col gap-20 lg:gap-32 relative section-padding'>
       <H1 text='Privacy Policy' />
 
-      <p className={pClassName}>
-        Find Vercel&apos;s privacy policy here:
-        https://vercel.com/legal/privacy-policy.
-      </p>
+      <Section>
+        <p className={pClassName}>
+          In short: I do not collect any data from you unless you contact me.
+          For example, if you contact me via email, I will have your email
+          address. You can demand the deletion of this data at any time.
+        </p>
+        <p>
+          The website is hosted via the GDPR compliant service provider Vercel,
+          which needs to process some data (like your ip address) to serve the
+          website to you.
+        </p>
+      </Section>
       <Section>
         <H2 text='1. Data protection at a glance' />
 
@@ -146,7 +154,10 @@ const PrivacyPolicyPage: NextPage = () => {
           access.
         </p>
 
-        <H3 text='Note on the responsible body' className={h3ClassName} />
+        <H3
+          text='Information on the responsible body'
+          className={h3ClassName}
+        />
         <p className={pClassName}>
           The responsible body for data processing on this website is:
         </p>
