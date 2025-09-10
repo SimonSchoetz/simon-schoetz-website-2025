@@ -5,7 +5,7 @@ import {
   CareerPathsSection,
   ProjectsSection,
   ContactSection,
-} from './_sections';
+} from '../_sections';
 import { HeroCandy } from '@/components';
 
 const MainPage: NextPage = () => {

@@ -1,3 +1,4 @@
+export * from './BackToHome';
 export * from './BurgerMenuButton';
 export * from './button/Button';
 export * from './Chip';

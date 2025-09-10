@@ -76,13 +76,7 @@ export const Navigation: FCProps<HtmlProps<'nav'>> = ({
   };
 
   return (
-    <nav
-      aria-label='Primary'
-      className={`px-4 backdrop-blur-md ${className}
-          lg:px-8
-          xl:px-16`}
-      {...props}
-    >
+    <nav aria-label='Primary' className={`${className}`} {...props}>
       <DesktopNav
         navItems={navItems}
         activeId={activeId}
