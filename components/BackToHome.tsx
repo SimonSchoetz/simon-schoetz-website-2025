@@ -10,7 +10,7 @@ export const BackToHome: FCProps<HtmlProps<'a'>> = ({
   return (
     <Link
       href={href ?? '/'}
-      className={`flex items-center gap-2 group my-4 text-xs ${className}`}
+      className={`flex items-center gap-2 group py-4 text-xs sm:text-md border-b border-fg-4 ${className}`}
       {...props}
     >
       <Icon iconName='navArrow' className='rotate-180' />

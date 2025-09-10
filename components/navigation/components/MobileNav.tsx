@@ -34,7 +34,10 @@ export const MobileNav: FCProps<Props> = ({
   }, [isOpen]);
 
   return (
-    <div className={` text-xs sm:text-sm ${className}`} {...props}>
+    <div
+      className={` text-xs sm:text-sm border-b border-fg-4 ${className}`}
+      {...props}
+    >
       <div className='h-16 flex items-center justify-between'>
         <p>{currentSection?.label}</p>
 
