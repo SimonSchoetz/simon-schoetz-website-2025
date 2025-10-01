@@ -37,7 +37,7 @@ const careerPaths: {
   expandableContent: React.ReactNode;
 }[] = [
   {
-    title: 'Web Developer',
+    title: 'Web Dev & Product Owner',
     subTitle: 'My present and forward',
     expandableContent: (
       <>
@@ -76,6 +76,14 @@ const careerPaths: {
           startup through the Berliner Startup Stipendium. As tech lead, I laid
           the technical foundation for the platform, established agile
           workflows, and mentored my first junior developer.
+        </p>
+        <p>
+          Currently, I&apos;m leveling up. I&apos;m pursuing Product Owner
+          certification to formalize the leadership experience I&apos;ve been
+          building over the years, while sharpening my technical edge through AI
+          expert training. Moving forward,I want to leverage my whole array of
+          skills, not just the technical ones, and make informed decisions about
+          where technology can create real impact.
         </p>
       </>
     ),

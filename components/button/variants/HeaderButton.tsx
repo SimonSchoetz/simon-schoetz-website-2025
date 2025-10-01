@@ -49,7 +49,7 @@ export const HeaderButton: FCProps<HeaderButtonProps> = ({
       <div className='z-10 flex flex-col items-start md:flex-row md:container-center md:items-center md:gap-8'>
         <div className='relative'>
           <H3
-            className={`uppercase text-3xl font-medium leading-none ${textTransition}`}
+            className={`uppercase text-left text-3xl font-medium leading-none ${textTransition}`}
             text={label}
           />
 
