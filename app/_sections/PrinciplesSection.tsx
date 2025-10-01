@@ -37,7 +37,7 @@ const principles: {
 }[] = [
   {
     cover: 'Creativity',
-    content: `I approach every project as a space for thoughtful design and inventive problem-solving. I'm skilled at weighing diverse perspectives from users, stakeholders, and technical constraints to make clear, creative decisions that move projects forward. Creativity, for me, is about freedom and truth, about creating a safe space where all opinions are heard and valued, so that possibilities are maximized and the best compromise and outcome can be found.`,
+    content: `Creativity is about avoiding the compromise and finding the synthesis. When competing needs clash (clean code vs. tight deadlines, user experience vs. technical constraints, vision vs. what's buildable), compromise means everyone loses something. The creative path is holding all those tensions at once and thinking outside the box to let a third option emerge. Something nobody saw at the start. A synthesis where everyone wins. That's where the interesting work happens.`,
   },
   {
     cover: 'Conscience',
