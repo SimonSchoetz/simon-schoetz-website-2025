@@ -44,7 +44,8 @@ export const HeroSection: FCProps<HtmlProps<'section'>> = ({ ...props }) => {
             className='font-mono text-fs-base 
               md:text-[clamp(1.25rem,2vw,1.5rem)]'
           >
-            Building projects together with Creativity, Conscience, and Purpose.
+            Driving products outcomes through Creativity, Conscience, and
+            Purpose.
           </p>
 
           <div
