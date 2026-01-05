@@ -58,7 +58,7 @@ const cardsContent: CardContent[] = [
     ),
     expandableContent: (
       <>
-        <ExpandableCardItem title='Key Achievements: '>
+        <ExpandableCardItem title='Key Achievements:'>
           <ul className='list-disc pl-6'>
             <li>
               Launched a functional MVP with secure video hosting and streaming.
@@ -86,13 +86,12 @@ const cardsContent: CardContent[] = [
       </>
     ),
     chips: [
-      'Next.js',
-      'Tailwind CSS',
-      'TypeScript',
-      'Cloudflare',
-      'Convex',
-      'Stripe',
-      'Git',
+      'Product Owner',
+      'Tech Lead',
+      'Full-Stack Development',
+      'R&D',
+      'Mentoring',
+      'Agile',
     ],
   },
   {
@@ -135,7 +134,7 @@ const cardsContent: CardContent[] = [
     ),
     expandableContent: (
       <>
-        <ExpandableCardItem title='Key Achievements: '>
+        <ExpandableCardItem title='Key Achievements:'>
           <ul className='list-disc pl-6'>
             <li>
               Contributed to the successful pivot from digital IDs to a fully
@@ -178,9 +177,11 @@ const cardsContent: CardContent[] = [
       'PostgreSQL',
       'Docker',
       'Git',
-      'Jira',
-      'Scrum',
       'Microservices',
+      'Jira',
+      'Scrum Master',
+      'Agile Leadership',
+      'Crossfunctional Collaboration',
     ],
   },
   {
@@ -215,7 +216,7 @@ const cardsContent: CardContent[] = [
     ),
     expandableContent: (
       <>
-        <ExpandableCardItem title='Key Achievements: '>
+        <ExpandableCardItem title='Key Achievements:'>
           <ul className='list-disc pl-6'>
             <li>
               Reduced technical debt by breaking down monolithic files of up to
@@ -258,6 +259,8 @@ const cardsContent: CardContent[] = [
       'Python',
       'SQLAlchemy',
       'Docker',
+      'Stakeholder Management',
+      'Technical Debt Reduction',
     ],
   },
 ];
