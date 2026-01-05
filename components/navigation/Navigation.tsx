@@ -15,12 +15,12 @@ const navItems: NavItem[] = [
     label: 'Principles',
   },
   {
-    id: 'projects',
-    label: 'Projects',
-  },
-  {
     id: 'career-paths',
     label: 'Career Paths',
+  },
+  {
+    id: 'projects',
+    label: 'Projects',
   },
   {
     id: 'contact',

@@ -17,9 +17,9 @@ const MainPage: NextPage = () => {
 
       <PrinciplesSection />
 
-      <ProjectsSection />
-
       <CareerPathsSection />
+
+      <ProjectsSection />
 
       <ContactSection />
     </main>
