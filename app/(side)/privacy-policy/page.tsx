@@ -154,7 +154,7 @@ const PrivacyPolicyPage: NextPage = () => {
           12055 Berlin, Germany
           <br />
           <br />
-          Email: info@simonschoetz.de
+          Email: contact@simonschoetz.de
           <br />
         </p>
         <p className={`${pClassName}`}>

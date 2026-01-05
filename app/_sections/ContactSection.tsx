@@ -8,8 +8,8 @@ import { useState } from 'react';
 
 const contactChips = [
   {
-    label: 'info@simonschoetz.de',
-    link: 'mailto:info@simonschoetz.de',
+    label: 'contact@simonschoetz.de',
+    link: 'mailto:contact@simonschoetz.de',
   },
   {
     label: 'LinkedIn',

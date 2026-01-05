@@ -17,7 +17,7 @@ const ImprintPage: NextPage = () => {
       </p>
 
       <H2 text='Contact' className={h2ClassName} />
-      <p>Email: info@simonschoetz.de</p>
+      <p>Email: contact@simonschoetz.de</p>
 
       <H2
         text='Responsible for content according to § 55 Abs. 2 RStV:'
